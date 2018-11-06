@@ -269,9 +269,36 @@
 
 <spring:url value="/resources/vendor/jquery/jquery-3.2.1.min.js" var="kmhome1"></spring:url>
 <script src="${kmhome1}"></script>
+
 <!--===============================================================================================-->
 <spring:url value="/resources/vendor/jquery/jquery.validate.min.js" var="kmhome1"></spring:url>
 <script src="${kmhome1}"></script>
+<!--===============================================================================================-->
+<spring:url value="/resources/vendor/jqueryui/jquery-ui.css" var="kmORG1"></spring:url>
+<script src="${kmORG1}"></script>
+
+
+<spring:url value="/resources/vendor/jqueryui/jquery-ui.js" var="kmORG2"></spring:url>
+<script src="${kmORG2}"></script>
+
+
+<spring:url value="/resources/vendor/jqueryui/jquery-ui.min.css" var="kmORG3"></spring:url>
+<script src="${kmORG3}"></script>
+
+
+
+<spring:url value="/resources/vendor/jqueryui/jquery-ui.min.js" var="kmORG4"></spring:url>
+<script src="${kmORG4}"></script>
+
+
+<spring:url value="/resources/vendor/jqueryui/jquery-ui.theme.css" var="kmORG5"></spring:url>
+<script src="${kmORG5}"></script>
+
+
+<spring:url value="/resources/vendor/jqueryui/jquery-ui.theme.css" var="kmORG6"></spring:url>
+<script src="${kmORG6}"></script>
+
+
 <!--===============================================================================================-->
 <spring:url value="/resources/vendor/animsition/js/animsition.min.js" var="kmhome2"></spring:url>
 <script src="${kmhome2}"></script>
