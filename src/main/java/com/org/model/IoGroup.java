@@ -42,7 +42,7 @@ public class IoGroup {
 	}
 
 	// ************* Relations ***********************
-	@OneToMany(mappedBy = "ioGroup", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "ioGroup",targetEntity = IoMember.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<IoMember> ioMember;
 
 	public List<IoMember> getIoMember() {

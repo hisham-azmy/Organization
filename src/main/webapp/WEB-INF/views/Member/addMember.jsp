@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
 <%@ include file="/WEB-INF/views/Layout/TagLib.jsp"%>
-<%@page pageEncoding="UTF-8" %>
-<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,14 +107,14 @@
 	<jsp:include page="../header.jsp" />
 
 	<div>
-				<c:choose>
-					<c:when test='${title=="New Member"}'>
-						<spring:url value="/admin/member/add" var="url" />
-					</c:when>
-					<c:when test='${title=="Edit member"}'>
-						<spring:url value="/admin/member/edit" var="url" />
-					</c:when>
-				</c:choose>
+		<c:choose>
+			<c:when test='${title=="New Member"}'>
+				<spring:url value="/admin/member/add" var="url" />
+			</c:when>
+			<c:when test='${title=="Edit member"}'>
+				<spring:url value="/admin/member/edit" var="url" />
+			</c:when>
+		</c:choose>
 
 		<spring:url value="/admin/member/add" var="url" />
 		<div class="row sign" style="padding-bottom: 30px;">
@@ -128,7 +126,7 @@
 					<br /> <br />
 					<div class="col-md-6 col-sm-6 col-xs-12">
 
-						<form:form commandName="member" cssClass="form-horizontal" accept-charset="UTF-8"
+						<form:form commandName="member" cssClass="form-horizontal"
 							action="${url}" method="POST" enctype="multipart/form-data">
 
 							<!-- ************        Name           *************** -->
@@ -238,11 +236,43 @@
 								</form:label>
 								<div class="col-sm-10">
 									<div class="input-group">
-										-->
 										<div class="input-group-addon">
 											<i class="fa fa-calendar"> </i>
 										</div>
 										<form:input path="joinDate" cssClass="datepicker-1"
+											name="date" placeholder="mm/dd/yyyy" type="text" />
+									</div>
+								</div>
+							</div>
+
+
+							<div class="form-group ">
+								<form:label path="monthlyPaidValue"
+									class="form-group col-lg-4 col-lg-offset-0 ">
+									<strong><spring:message code="label.monthlyPaidValue" /></strong>
+								</form:label>
+								<div class="col-sm-10">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"> </i>
+										</div>
+										<form:input path="monthlyPaidValue" cssClass="datepicker-1"
+											name="date" placeholder="mm/dd/yyyy" type="text" />
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group ">
+								<form:label path="dayOfMonth"
+									class="form-group col-lg-4 col-lg-offset-0 ">
+									<strong><spring:message code="label.dayOfMonth" /></strong>
+								</form:label>
+								<div class="col-sm-10">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"> </i>
+										</div>
+										<form:input path="dayOfMonth" cssClass="datepicker-1"
 											name="date" placeholder="mm/dd/yyyy" type="text" />
 									</div>
 								</div>
@@ -284,15 +314,15 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
 		<script>
-			$(document)
-					.ready(
-							function() {
-								$('#familyName')
-										.autocomplete(
-												{
-													source : '${pageContext.request.contextPath}/admin/group/searchName',
-												});
-							});
+			// 			$(document)
+			// 					.ready(
+			// 							function() {
+			// 								$('#familyName')
+			// 										.autocomplete(
+			// 												{
+			// 													source : '${pageContext.request.contextPath}/admin/group/searchName',
+			// 												});
+			// 							});
 			$(document)
 					.ready(
 							function() {

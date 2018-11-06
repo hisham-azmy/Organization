@@ -41,11 +41,11 @@ public class IoMember {
 	@Column(name = "join_date")
 	private Date joinDate;
 
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "mm/dd/yyyy")
 	@Column(name = "monthly_paid_value")
 	private Date monthlyPaidValue;
 
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "mm/dd/yyyy")
 	@Column(name = "day_of_month")
 	private Date dayOfMonth;
 
@@ -138,7 +138,7 @@ public class IoMember {
 	}
 
 	// ****************** Relatinos ***************************
-	@ManyToOne
+	@ManyToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private IoGroup ioGroup;
 
 	@OneToMany(mappedBy = "io_member", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

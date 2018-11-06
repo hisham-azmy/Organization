@@ -2,8 +2,8 @@ package com.org.service;
 
 import com.jwt.dao.ClientDao;
 import com.jwt.model.Client;
+import com.org.dao.MemberDao;
 import com.org.model.IoMember;
-import com.org.model.MemberPartnershipDetails;
 
 import java.util.List;
 
@@ -13,64 +13,67 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class MemberServiceImpl implements PartnershipServcie {
+public class MemberServiceImpl implements MemberServcie {
 
 	@Autowired
-	private PartnershipServcie partnershipServcie;
+	private MemberDao memberDao;
 
 	@Override
-	public void AddPartnership(MemberPartnershipDetails partnership) {
-		partnershipServcie.AddPartnership(partnership);
+	public void AddMember(IoMember ioMember) {
+		memberDao.AddMember(ioMember);
 	}
 
 	@Override
-	public void updatePartnership(MemberPartnershipDetails IoMember) {
-		partnershipServcie.updatePartnership(IoMember);
+	public void updateMember(IoMember IoMember) {
+		memberDao.updateMember(IoMember);
 	}
 
 	@Override
-	public void deletePartnership(int id) {
-		partnershipServcie.deletePartnership(id);
+	public void deleteMember(int id) {
+		memberDao.deleteMember(id);
 	}
 
 	@Override
-	public List<MemberPartnershipDetails> getAllPartnerships() {
-		return partnershipServcie.getAllPartnerships();
+	public List<IoMember> getAllMembers() {
+
+		return memberDao.getAllMembers();
 	}
 
 	@Override
-	public List<MemberPartnershipDetails> filterPartnershipByTelephone(String telephone) {
-		return partnershipServcie.filterPartnershipByTelephone(telephone);
+	public List<IoMember> filterMemberByTelephone(String telephone) {
+		// TODO Auto-generated method stub
+		return memberDao.filterMemberByTelephone(telephone);
 	}
 
 	@Override
-	public List<MemberPartnershipDetails> filterPartnershipByName(String name) {
-		return partnershipServcie.filterPartnershipByName(name);
+	public List<IoMember> filterMembersByName(String name) {
+		return memberDao.filterMembersByName(name);
 	}
 
 	@Override
-	public List<MemberPartnershipDetails> filterPartnershipByCode(int id) {
-		return partnershipServcie.filterPartnershipByCode(id);
+	public List<IoMember> filterMemberByCode(int id) {
+		return memberDao.filterMemberByCode(id);
 	}
 
 	@Override
-	public MemberPartnershipDetails getPartnershipById(int partnershipId) {
-		return partnershipServcie.getPartnershipById(partnershipId);
+	public IoMember getMemberById(int clientId) {
+		return memberDao.getMemberById(clientId);
 	}
 
 	@Override
-	public List<MemberPartnershipDetails> getAllNamePerPartnerships(String name) {
-		return partnershipServcie.getAllNamePerPartnerships(name);
+	public List<String> getAllNamePerMembers(String name) {
+		return memberDao.getAllNamePerMembers(name);
 	}
 
 	@Override
-	public List<MemberPartnershipDetails> filterPartnership(String name, float min, float max) {
-		return partnershipServcie.filterPartnership(name, min, max);
+	public List<IoMember> filterMember(String name, float min, float max) {
+		return memberDao.filterMember(name, min, max);
 	}
 
 	@Override
-	public List<MemberPartnershipDetails> searchPartnership(String name) {
-		return partnershipServcie.searchPartnership(name);
+	public List<IoMember> searchMember(String name) {
+		// TODO Auto-generated method stub
+		return memberDao.searchMember(name);
 	}
 
 }

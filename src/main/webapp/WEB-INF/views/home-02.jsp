@@ -82,11 +82,10 @@
 <body class="animsition">
 
 
-
 	<!-- top noti -->
 	<div class="flex-c-m size22 bg0 s-text21 pos-relative">
-		20% off everything! <a href="product.jsp" class="s-text22 hov6 p-l-5">
-			Shop Now </a>
+		here you can calculate everything about your business <a href='<spring:url value="/admin/allLoan" />' class="s-text22 hov6 p-l-5">
+			Go Now </a>
 
 		<button
 			class="flex-c-m pos2 size23 colorwhite eff3 trans-0-4 btn-romove-top-noti">
@@ -105,14 +104,6 @@
                     value="/resources/img/297.jpg"></spring:url>);">
 					<div
 						class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-170">
-						<!-- 						<h2 -->
-						<!-- 							class="caption1-slide1 xl-text2 t-center bo14 p-b-6 animated visible-false m-b-22" -->
-						<!-- 							data-appear="fadeInUp">Leather Bags</h2> -->
-
-						<!-- 						<span -->
-						<!-- 							class="caption2-slide1 m-text1 t-center animated visible-false m-b-33" -->
-						<!-- 							data-appear="fadeInDown"> New Collection 2018 </span> -->
-
 						<div class="wrap-btn-slide1 w-size1 animated visible-true"
 							data-appear="zoomIn">
 							<!-- Button -->
@@ -123,25 +114,34 @@
 					</div>
 				</div>
 
+
+
 				<div class="item-slick1 item2-slick1"
 					style="background-image: url(<spring:url
                     value="/resources/img/income.jpg"></spring:url>);">
 					<div
 						class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<!-- 						<h2 -->
-						<!-- 							class="caption1-slide1 xl-text2 t-center bo14 p-b-6 animated visible-false m-b-22" -->
-						<!-- 							data-appear="rollIn">Leather Bags</h2> -->
-
-						<!-- 						<span -->
-						<!-- 							class="caption2-slide1 m-text1 t-center animated visible-false m-b-33" -->
-						<!-- 							data-appear="lightSpeedIn"> New Collection 2018 </span> -->
-
-						<div class="wrap-btn-slide1 w-size1 animated visible-false"
+						<div class="wrap-btn-slide1 w-size1 animated visible-true"
 							data-appear="slideInUp">
 							<!-- Button -->
 							<a href="product.jsp"
 								class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-								Shop Now </a>
+								«·«Ì—«œ«  </a>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick1 item2-slick1"
+					style="background-image: url(<spring:url
+                    value="/resources/img/income.jpg"></spring:url>);">
+					<div
+						class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+						<div class="wrap-btn-slide1 w-size1 animated visible-true"
+							data-appear="slideInUp">
+							<!-- Button -->
+							<a href="product.jsp"
+								class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+								«·«⁄œ«œ  </a>
 						</div>
 					</div>
 				</div>
@@ -178,7 +178,7 @@
 	<section class="bgwhite p-t-45 p-b-58">
 		<div class="container">
 			<div class="sec-title p-b-22">
-				<h3 class="m-text5 t-center">Our Products</h3>
+				<h3 class="m-text5 t-center">«·’›Õ… «·—∆Ì”Ì…</h3>
 			</div>
 
 			<!-- Tab01 -->
@@ -190,30 +190,55 @@
 					<div class="tab-pane fade show active" id="best-seller"
 						role="tabpanel">
 						<div class="row">
+
+
 							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
 								<div class="block2">
 									<div
 										class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
 
-										<img
-											src='<spring:url value="/resources/img/297.jpg"
-								></spring:url>'
-											alt="IMG-PRODUCT">
+										<a href='<spring:url value="/admin/allLoan" />'> <img
+											src='<spring:url value="/resources/img/297.jpg"></spring:url>'
+											alt="IMG-PRODUCT"></a>
+									</div>
 
-										<div class="block2-overlay trans-0-4"></div>
+									<div class="block2-txt p-t-20" style="font-size: 7800px;">
+
+										<center>
+											<a href="product-detail.jsp"
+												class="block2-name dis-block s-text3 p-b-5"> ﬁ—Ê÷ </a>
+										</center>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+								<!-- Block2 -->
+								<div class="block2">
+									<div
+										class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+
+										<a href='<spring:url value="/admin/allMember" />'> <img
+											style="max-height: 174px;"
+											src='<spring:url value="/resources/img/member.jpg"  ></spring:url>'
+											alt="IMG-PRODUCT"></a>
 									</div>
 
 									<div class="block2-txt p-t-20">
 										<h2>
 											<center>
 												<a href="product-detail.jsp"
-													class="block2-name dis-block s-text3 p-b-5"> ﬁ—Ê÷ </a>
+													class="block2-name dis-block s-text3 p-b-5"> «·«⁄÷«¡ </a>
 										</h2>
 										</center>
+
 									</div>
 								</div>
 							</div>
+
+
 
 							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
@@ -232,8 +257,7 @@
 										<h2>
 											<center>
 												<a href="product-detail.jsp"
-													class="block2-name dis-block s-text3 p-b-5">
-													 «·«Ì—«œ« 
+													class="block2-name dis-block s-text3 p-b-5"> «·«Ì—«œ« 
 												</a>
 										</h2>
 										</center>

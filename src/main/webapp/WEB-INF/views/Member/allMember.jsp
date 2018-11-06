@@ -97,18 +97,7 @@
 						<!--  -->
 						<h4 class="m-text14 p-b-7">Categories</h4>
 
-						<ul class="p-b-54">
-							<li class="p-t-4"><a
-								href='<spring:url value="/product/all" />'
-								class="s-text13 active1"> All </a></li>
-
-							<c:forEach var="category" items="${categories}">
-								<li class="p-t-4"><a
-									href='<spring:url value="/category/${category.id}" />'
-									class="s-text13"> ${category.name} </a></li>
-							</c:forEach>
-
-						</ul>
+			
 
 						<!--  -->
 						<h4 class="m-text14 p-b-32">Filters</h4>
@@ -157,11 +146,11 @@
 						</div>
 
 					</div>
-					<spring:url value="/resources/images/11.jpg" var="imageOfC"></spring:url>
+					<spring:url value="/resources/img/member.jpg" var="imageOfC"></spring:url>
 					<!-- Product -->
 					<div class="products_aj">
 						<table class="table table-striped">
-							<caption>Avaliable Clients</caption>
+							<caption>Avaliable Members</caption>
 							<thead>
 								<tr>
 									<th>Name Of Client</th>

@@ -86,7 +86,7 @@ public class Loan {
 	}
 
 	// *********************** Relationships ******************************
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private IoMember io_member;
 
 	@OneToMany(mappedBy = "loanId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
