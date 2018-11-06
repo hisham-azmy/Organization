@@ -147,7 +147,7 @@
 							<!-- 						************        Family           *************** -->
 
 							<div class="form-group col-lg-12 col-lg-offset-5 act">
-								<form:input path="ioGroup.fullName" id="familyName"
+								<form:input path="ioGroup.fullName" id="clientName1"
 									cssClass="form-group col-lg-6 col-lg-offset-5 act"
 									placeholder="Type your email" />
 
@@ -213,21 +213,6 @@
 									<form:errors path="address2" cssStyle="color:#f00;"></form:errors>
 								</div>
 							</div>
-
-
-							<!-- 							<div class="form-group col-lg-12 col-lg-offset-5 act"> -->
-							<%-- 								<form:input path="joinDate" --%>
-							<%-- 									cssClass="form-group col-lg-6 col-lg-offset-5 act" /> --%>
-
-							<%-- 								<form:label class="form-group col-lg-4 col-lg-offset-0 " --%>
-							<%-- 									path="joinDate"> --%>
-							<%-- 									<strong><spring:message code="label.joinDateMember" /></strong> --%>
-							<%-- 								</form:label> --%>
-							<!-- 								<div class="form-group col-lg-12 col-lg-offset-5"> -->
-							<%-- 									<form:errors path="joinDate" cssStyle="color:#f00;"></form:errors> --%>
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-
 
 							<div class="form-group ">
 								<form:label path="joinDate"
@@ -302,61 +287,17 @@
 
 		<jsp:include page="../footer.jsp" />
 
-		<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
-		<!-- Include jQuery -->
-		<script type="text/javascript"
-			src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-		<!-- Include Date Range Picker -->
-		<script type="text/javascript"
-			src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-		<link rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
-
-		<script>
-			// 			$(document)
-			// 					.ready(
-			// 							function() {
-			// 								$('#familyName')
-			// 										.autocomplete(
-			// 												{
-			// 													source : '${pageContext.request.contextPath}/admin/group/searchName',
-			// 												});
-			// 							});
+		<script type="text/javascript">
 			$(document)
 					.ready(
 							function() {
-								var date_input = $('input[name="date"]'); //our date input has the name "date"
-								var container = $('.bootstrap-iso form').length > 0 ? $(
-										'.bootstrap-iso form').parent()
-										: "body";
-								date_input.datepicker({
-									format : 'mm/dd/yyyy',
-									container : container,
-									todayHighlight : true,
-									autoclose : true,
-								})
-							})
-			$(function() {
-				$(".datepicker-1").datepicker();
-				format: 'mm/dd/yyyy'
-			});
-
-			// 		$(document)
-			// 				.ready(
-			// 						function() {
-			// 							$('#groupName')
-			// 									.autocomplete(
-			// 											{
-			// 												source : '${pageContext.request.contextPath}/admin/group/searchName',
-			// 											});
-			// 						});
-
-			// 			$(function () {
-			// 			    $('.datepicker').datepicker({
-			// 			        format: 'd-M-yyyy'
-			// 			    });
-			// 			});
+								$('#clientName1')
+										.autocomplete(
+												{
+													source : '${pageContext.request.contextPath}/admin/group/searchName',
+												});
+							});
 		</script>
 </body>
 </html>
