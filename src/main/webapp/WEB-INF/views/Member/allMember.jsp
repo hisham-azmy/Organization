@@ -97,7 +97,7 @@
 						<!--  -->
 						<h4 class="m-text14 p-b-7">Categories</h4>
 
-			
+
 
 						<!--  -->
 						<h4 class="m-text14 p-b-32">Filters</h4>
@@ -148,7 +148,15 @@
 					</div>
 					<spring:url value="/resources/img/member.jpg" var="imageOfC"></spring:url>
 					<!-- Product -->
+
+
 					<div class="products_aj">
+						<a href='<spring:url value="/admin/member/create" />'>
+							<h3>
+								<center>Create new Member
+							</h3>
+							</center>
+						</a> <br> <br> <br> <br>
 						<table class="table table-striped">
 							<caption>Avaliable Members</caption>
 							<thead>

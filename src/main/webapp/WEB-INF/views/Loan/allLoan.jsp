@@ -80,7 +80,7 @@
 	<jsp:include page="../header.jsp" />
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" 
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
 		style="max-height: 174px;background-image: url(<spring:url
         value="/resources/img/income.jpg"></spring:url>);">
 		<h2 class="l-text2 t-center">Available Loans</h2>
@@ -126,11 +126,10 @@
 						<div class="flex-w">
 							<!-- search -->
 							<div class="search-product pos-relative bo4 of-hidden">
-<!-- 								name of Client <input type="text" id="clientName"> -->
-								
-								 <input
-									class="search_product s-text7 size6 p-l-23 p-r-50" type="text"
-									name="search-product" id="clientName"
+								<!-- 								name of Client <input type="text" id="clientName"> -->
+
+								<input class="search_product s-text7 size6 p-l-23 p-r-50"
+									type="text" name="search-product" id="clientName"
 									placeholder="Search Products...">
 
 								<button
@@ -144,6 +143,17 @@
 					<spring:url value="/resources/images/11.jpg" var="imageOfC"></spring:url>
 					<!-- Product -->
 					<div class="products_aj">
+						<a href='<spring:url value="/admin/loan/create" />'>
+							<h3>
+								<center>Create new Loans
+							</h3>
+							</center>
+						</a>
+						<br>
+						<br>
+						<br>
+						<br>
+						
 						<table class="table table-striped">
 							<caption>Avaliable Loans</caption>
 							<thead>

@@ -3,6 +3,7 @@ package com.org.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,20 +13,26 @@ import com.jwt.model.Product;
 import com.org.model.IoMember;
 
 @Repository
-@Transactional
 public class MemberDaoImpl implements MemberDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	// IoMember customMember;
+
 	@Override
 	public void AddMember(IoMember member) {
-		sessionFactory.getCurrentSession().save(member);
+//		sessionFactory.getCurrentSession().save(member);
+		sessionFactory.getCurrentSession().saveOrUpdate(member);
 	}
 
 	@Override
 	public void updateMember(IoMember member) {
-		sessionFactory.getCurrentSession().update(member);
+		System.out.println("Id of member inside DaoImpl" + member.getId());
+		Session session = sessionFactory.getCurrentSession();
+		member = (IoMember) session.merge(member);
+		System.out.println("Id of member inside DaoImpl after merge" + member.getId());
+		session.update(member);
 	}
 
 	@Override
@@ -72,7 +79,8 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public List<String> getAllNamePerMembers(String name) {
 
-		Query q = sessionFactory.getCurrentSession().createQuery("select name from IoMember where fullName LIKE :fullName");
+		Query q = sessionFactory.getCurrentSession()
+				.createQuery("select name from IoMember where fullName LIKE :fullName");
 		q.setParameter("fullName", "%" + name + "%");
 		List<String> allNames = (List<String>) q.list();
 		return allNames;

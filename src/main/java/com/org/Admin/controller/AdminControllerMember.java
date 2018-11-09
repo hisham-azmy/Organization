@@ -91,7 +91,7 @@ public class AdminControllerMember {
 
 	@RequestMapping(value = "/member/edit/{id}", method = RequestMethod.GET)
 	public String editMember(Model model, @PathVariable("id") int id) {
-		IoMember member= memberServcie.getMemberById(id);
+		IoMember member = memberServcie.getMemberById(id);
 		model.addAttribute("title", "Edit member");
 		model.addAttribute("headerMSG", "Edit the member");
 		model.addAttribute("member", member);
@@ -100,11 +100,12 @@ public class AdminControllerMember {
 	}
 
 	@RequestMapping(value = "/member/edit", method = RequestMethod.POST)
-	public String editMember(@Valid @ModelAttribute("member") IoMember member, BindingResult br) {
-		if (br.hasErrors()) {
-			return "Member/addMember";
-		}
-		memberServcie.updateMember(member);
+	public String editMember(@Valid @ModelAttribute  IoMember member, BindingResult br) {
+		// if (br.hasErrors()) {
+		// return "Member/addMember";
+		// }
+		System.out.println("Id of membr inside Edit member controller" + member.getId());
+		memberServcie.AddMember(member);
 
 		return "redirect:/admin/allMember";
 	}
@@ -140,7 +141,6 @@ public class AdminControllerMember {
 		dateFormatter.setLenient(false);
 		binder.registerCustomEditor(Date.class, "joinDate", new CustomDateEditor(dateFormatter, true));
 	}
-
 
 	@RequestMapping(value = "/group/searchName", method = RequestMethod.GET)
 	@ResponseBody

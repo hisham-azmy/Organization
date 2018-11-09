@@ -11,9 +11,10 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 public class IoMember {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue
+	private Integer id;
 
 	@Size(min = 3, max = 50, message = "Name must more than 8")
 	@Column(name = "full_name")
@@ -49,11 +50,12 @@ public class IoMember {
 	@Column(name = "day_of_month")
 	private Date dayOfMonth;
 
-	public int getId() {
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -138,7 +140,7 @@ public class IoMember {
 	}
 
 	// ****************** Relatinos ***************************
-	@ManyToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private IoGroup ioGroup;
 
 	@OneToMany(mappedBy = "io_member", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

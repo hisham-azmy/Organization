@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
 <%@ include file="/WEB-INF/views/Layout/TagLib.jsp"%>
 
 <meta charset="UTF-8">
@@ -127,7 +129,11 @@
 					<div class="col-md-6 col-sm-6 col-xs-12">
 
 						<form:form commandName="member" cssClass="form-horizontal"
-							action="${url}" method="POST" enctype="multipart/form-data">
+							action="${url}" method="POST" >
+
+							<c:if test='${title=="Edit member"}'>
+								<form:hidden path="id" ></form:hidden>
+							</c:if>
 
 							<!-- ************        Name           *************** -->
 
@@ -143,9 +149,7 @@
 									<form:errors path="fullName" cssStyle="color:#f00;"></form:errors>
 								</div>
 							</div>
-
 							<!-- 						************        Family           *************** -->
-
 							<div class="form-group col-lg-12 col-lg-offset-5 act">
 								<form:input path="ioGroup.fullName" id="clientName1"
 									cssClass="form-group col-lg-6 col-lg-offset-5 act"
@@ -267,7 +271,7 @@
 								<button type="submit"
 									class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
 									<c:choose>
-										<c:when test='${title=="New Client"}'>
+										<c:when test='${title=="New Member"}'>
 									new Member
 									</c:when>
 										<c:when test='${title=="Edit member"}'>

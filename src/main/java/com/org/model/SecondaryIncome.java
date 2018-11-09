@@ -10,16 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "secondary_expenses ")
-public class secondaryExpenses {
+@Table(name = "secondary_income")
+public class SecondaryIncome {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private String fund;
+	@Column(name = "creation_date")
+	private Date creationDate;
 
-	@Column(name = "expenses_date")
-	private Date expensesDate;
+	private Double fund;
 
 	public int getId() {
 		return id;
@@ -29,23 +29,29 @@ public class secondaryExpenses {
 		this.id = id;
 	}
 
-	public String getFund() {
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Double getFund() {
 		return fund;
 	}
 
-	public void setFund(String fund) {
+	public void setFund(Double fund) {
 		this.fund = fund;
 	}
 
-	public Date getExpensesDate() {
-		return expensesDate;
-	}
-
-	public void setExpensesDate(Date expensesDate) {
-		this.expensesDate = expensesDate;
-	}
-
 	
 	
-	
+	/*
+	 * 
+	 * 
+	 * end of secondaryIncome
+	 * 
+	 * 
+	 */
 }
