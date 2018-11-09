@@ -1,5 +1,6 @@
 package com.org.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -19,12 +20,13 @@ public class BankAccountDaoImpl implements BankAccountDao {
 
 	@Override
 	public void AddBankAccount(BankAccount bankAccount) {
+		bankAccount.setBankaccountdate(new Date());
 		sessionFactory.getCurrentSession().save(bankAccount);
 	}
 
 	@Override
 	public void updateBankAccount(BankAccount bankAccount) {
-		sessionFactory.getCurrentSession().update(bankAccount);
+		sessionFactory.getCurrentSession().saveOrUpdate(bankAccount);
 	}
 
 	@Override
@@ -33,4 +35,20 @@ public class BankAccountDaoImpl implements BankAccountDao {
 		List<BankAccount> allBankAccount = (List<BankAccount>) q.list();
 		return allBankAccount;
 	}
+
+	@Override
+	public void deleteBankAccount(int id) {
+		BankAccount bankAccount = (BankAccount) sessionFactory.getCurrentSession().load(BankAccount.class, id);
+		if (null != bankAccount) {
+			this.sessionFactory.getCurrentSession().delete(bankAccount);
+			this.sessionFactory.getCurrentSession().flush();
+		}
+	}
+
+	@Override
+	public BankAccount getBankAccountById(int Id) {
+
+		return (BankAccount) sessionFactory.getCurrentSession().get(BankAccount.class, Id);
+	}
+
 }

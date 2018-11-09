@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "secondary_income")
 public class SecondaryIncome {
@@ -16,6 +18,7 @@ public class SecondaryIncome {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@DateTimeFormat(pattern = "mm/dd/yyyy")
 	@Column(name = "creation_date")
 	private Date creationDate;
 

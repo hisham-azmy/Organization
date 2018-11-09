@@ -1,22 +1,15 @@
 package com.org.Admin.controller;
 
-import java.io.File;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.acl.Group;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -68,8 +61,6 @@ public class AdminControllerMember {
 	@RequestMapping(value = "/group/delete/{id}", method = RequestMethod.GET)
 	public String GroupDelete(Model model, @PathVariable("id") int id) {
 		groupServcie.deleteGroup(id);
-		// model.addAttribute("member", member);
-
 		return "redirect:/admin/allGroup";
 	}
 

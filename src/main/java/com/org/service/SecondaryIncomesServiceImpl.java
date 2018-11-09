@@ -32,4 +32,16 @@ public class SecondaryIncomesServiceImpl implements SecondaryIncomeService {
 		return secondaryIncomeDao.getAllSecondaryIncome();
 	}
 
+	@Override
+	public void deleteSecondaryIncome(int id) {
+		secondaryIncomeDao.deleteSecondaryIncome(id);
+
+	}
+
+	@Override
+	public SecondaryIncome getSecondaryIncomeById(int Id) {
+		// TODO Auto-generated method stub
+		return secondaryIncomeDao.getSecondaryIncomeById(Id);
+	}
+
 }

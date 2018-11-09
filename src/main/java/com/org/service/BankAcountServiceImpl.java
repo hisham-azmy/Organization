@@ -31,4 +31,16 @@ public class BankAcountServiceImpl implements BankAccountService {
 	public List<BankAccount> getAllBankAccount() {
 		return bankAccountDao.getAllBankAccount();
 	}
+
+	@Override
+	public void deleteBankAccount(int id) {
+		bankAccountDao.deleteBankAccount(id);
+		
+	}
+
+	@Override
+	public BankAccount getBankAccountById(int Id) {
+		// TODO Auto-generated method stub
+		return bankAccountDao.getBankAccountById(Id);
+	}
 }

@@ -2,8 +2,6 @@ package com.org.dao;
 
 import java.util.List;
 
-import com.jwt.model.Client;
-import com.jwt.model.Product;
 import com.org.model.IoMember;
 
 public interface MemberDao {

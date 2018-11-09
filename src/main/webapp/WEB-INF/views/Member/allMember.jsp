@@ -79,15 +79,15 @@
 
 	<jsp:include page="../header.jsp" />
 
+
+
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
-		style="background-image: url(<spring:url
-        value="/resources/images/12.jpg"></spring:url>);">
+		<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
+		style="max-height: 174px;background-image: url(<spring:url
+        value="/resources/img/income.jpg"></spring:url>);">
 		<h2 class="l-text2 t-center">Available Member</h2>
-		<!-- 		<p class="m-text13 t-center">All Clients </p> -->
 	</section>
-
-
+	
 	<!-- Content page -->
 	<section class="bgwhite p-t-55 p-b-65">
 		<div class="container">

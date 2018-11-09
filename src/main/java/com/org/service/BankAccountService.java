@@ -11,5 +11,9 @@ public interface BankAccountService {
 	public void updateBankAccount(BankAccount bankAccount);
 
 	public List<BankAccount> getAllBankAccount();
+	
+	public void deleteBankAccount(int id);
+
+	public BankAccount getBankAccountById(int Id);
 
 }

@@ -12,4 +12,8 @@ public interface BankAccountDao {
 
 	public List<BankAccount> getAllBankAccount();
 
+	public void deleteBankAccount(int id);
+
+	public BankAccount getBankAccountById(int Id);
+
 }

@@ -12,4 +12,8 @@ public interface SecondaryIncomeService {
 
 	public List<SecondaryIncome> getAllSecondaryIncome();
 
+	public void deleteSecondaryIncome(int id);
+	
+	public SecondaryIncome getSecondaryIncomeById(int Id);
+
 }

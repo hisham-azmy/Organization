@@ -153,36 +153,30 @@
 						</center>
 					</a> <br> <br> <br> <br>
 					<table class="table table-striped">
-						<caption>Avaliable Members</caption>
+						<caption>Avaliable Second Icomes</caption>
 						<thead>
 							<tr>
-								<th><strong><spring:message code="label.fullname" /></strong></th>
-								<%-- 									<th><strong><spring:message --%>
-								<%-- 												code="label.monthly_paid_value" /></strong></th> --%>
-								<%-- 									<th><strong><spring:message --%>
-								<%-- 												code="label.day_of_month" /></strong></th> --%>
-
+								<th><strong><spring:message code="label.fund" /></strong></th>
+								<th><strong><spring:message
+											code="label.dateOfCreation" /></strong></th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<spring:url value='/teacher/QuestionBank' var="toto"></spring:url>
-
 							<c:forEach var="product" items="${members}">
 
-								<td><c:out value="${product.fullName}" /></td>
-								<%-- 									<td><c:out value="${product.monthlyPaidValue}" /></td> --%>
-								<%-- 									<td><c:out value="${product.dayOfMonth}" /></td> --%>
+								<td><c:out value="${product.fund}" /></td>
+								<td><c:out value="${product.creationDate}" /></td>
 								<td><a
-									href='<spring:url value="/admin/group/edit/${product.id}" />'>
+									href='<spring:url value="/admin/secondIncome/edit/${product.id}" />'>
 										<img
 										src="<spring:url value="/resources/Css/images/icons/options.png"   />">
 								</a> <a
-									href='<spring:url value="/admin/group/details/${product.id}" />'>
+									href='<spring:url value="/admin/secondIncome/details/${product.id}" />'>
 										<img
 										src="<c:url value="/resources/Css/images/icons/view.png "></c:url>">
 								</a> <a
-									href='<spring:url value="/admin/group/delete/${product.id}" />'><img
+									href='<spring:url value="/admin/secondIncome/delete/${product.id}" />'><img
 										src=" <spring:url value="/resources/Css/images/icons/delete.png"   ></spring:url>"></a></td>
 								</tr>
 							</c:forEach>

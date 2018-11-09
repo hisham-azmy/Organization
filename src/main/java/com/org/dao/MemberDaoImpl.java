@@ -17,7 +17,6 @@ public class MemberDaoImpl implements MemberDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	// IoMember customMember;
 
 	@Override
 	public void AddMember(IoMember member) {
@@ -32,6 +31,11 @@ public class MemberDaoImpl implements MemberDao {
 		member = (IoMember) session.merge(member);
 		System.out.println("Id of member inside DaoImpl after merge" + member.getId());
 		session.update(member);
+	}
+
+	@Override
+	public IoMember getMemberById(int Memberid) {
+		return (IoMember) sessionFactory.getCurrentSession().get(IoMember.class, Memberid);
 	}
 
 	@Override
@@ -86,11 +90,6 @@ public class MemberDaoImpl implements MemberDao {
 
 	}
 
-	@Override
-	public IoMember getMemberById(int Memberid) {
-
-		return (IoMember) sessionFactory.getCurrentSession().get(IoMember.class, Memberid);
-	}
 
 	@Override
 	public List<IoMember> filterMember(String name, float min, float max) {

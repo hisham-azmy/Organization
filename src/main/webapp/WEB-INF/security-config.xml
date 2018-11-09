@@ -26,6 +26,9 @@
 	<http use-expressions="true">
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/customer/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/BankAccount/**" access="hasRole('ROLE_Bank_Account')" />
+		<intercept-url pattern="/Loan/**" access="hasRole('ROLE_Loan')" />
+
 
 		<form-login login-page='/login' default-target-url="/"
 			authentication-failure-url="/login?error=true" />
@@ -45,9 +48,9 @@
 
 				users-by-username-query="select name ,password ,1 as enabled from Customer where name=? " />
 
-<!-- 			<user-service> -->
-<!-- 				<user name="admin" password="admin" authorities="ROLE_ADMIN" /> -->
-<!-- 			</user-service> -->
+			<!-- <user-service> -->
+			<!-- <user name="admin" password="admin" authorities="ROLE_ADMIN" /> -->
+			<!-- </user-service> -->
 
 
 		</authentication-provider>

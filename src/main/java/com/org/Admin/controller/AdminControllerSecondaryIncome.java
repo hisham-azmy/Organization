@@ -3,6 +3,7 @@ package com.org.Admin.controller;
 import java.nio.file.Path;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.org.model.IoGroup;
-import com.org.model.IoSettings;
+import com.org.model.IoMember;
 import com.org.model.SecondaryIncome;
 import com.org.service.SecondaryIncomeService;
 import com.org.service.SettingsServcie;
@@ -31,19 +32,27 @@ public class AdminControllerSecondaryIncome {
 	private SecondaryIncomeService secondaryIncomeService;
 
 	@RequestMapping(value = "/secondIncome/create", method = RequestMethod.GET)
-	public String getSecIncome(Model model) {
-
+	public String createGroup(Model model) {
+		model.addAttribute("title", "New Secondry Income");
+		model.addAttribute("headerMSG", "create a new Secondry Income ");
 		model.addAttribute("secondIncome", new SecondaryIncome());
 		return "SecondaryIncome/addSecondIncome";
 	}
 
 	@RequestMapping(value = "/secondIncome/add", method = RequestMethod.POST)
-	public String postSettings(@Valid @ModelAttribute("secondaryIncome") SecondaryIncome secondaryIncome,
-			BindingResult br) {
+	public String postSettings(@Valid @ModelAttribute("secondIncome") SecondaryIncome secondIncome, BindingResult br) {
 		if (br.hasErrors()) {
-			return "Loan/addLoan";
+			return "SecondaryIncome/addSecondIncome";
 		}
-		secondaryIncomeService.updateSecondaryIncome(secondaryIncome);
+		secondaryIncomeService.AddSecondaryIncome(secondIncome);
+		return "redirect:/admin/allSecondaryIncome";
+	}
+
+	@RequestMapping(value = "/secondIncome/delete/{id}", method = RequestMethod.GET)
+	public String secondIncomeDelete(Model model, @PathVariable("id") int id) {
+
+		secondaryIncomeService.deleteSecondaryIncome(id);
+
 		return "redirect:/admin/allSecondaryIncome";
 	}
 
@@ -52,6 +61,28 @@ public class AdminControllerSecondaryIncome {
 		List<SecondaryIncome> secondaryIncomes = secondaryIncomeService.getAllSecondaryIncome();
 		model.addAttribute("members", secondaryIncomes);
 		return "SecondaryIncome/allSecondIncomes";
+	}
+
+	@RequestMapping(value = "/secondIncome/edit/{id}", method = RequestMethod.GET)
+	public String editsecondIncome(Model model, @PathVariable("id") int id) {
+
+		SecondaryIncome secondIncome = secondaryIncomeService.getSecondaryIncomeById(id);
+
+		model.addAttribute("title", "Secondry Income");
+		model.addAttribute("headerMSG", "Edit the Secondry Income");
+		model.addAttribute("secondIncome", secondIncome);
+
+		return "Member/addSecondIncome";
+	}
+
+	@RequestMapping(value = "/secondIncome/edit", method = RequestMethod.POST)
+	public String editMember(@Valid @ModelAttribute SecondaryIncome secondIncome, BindingResult br) {
+		// if (br.hasErrors()) {
+		// return "Member/addMember";
+		// }
+		secondaryIncomeService.updateSecondaryIncome(secondIncome);
+
+		return "redirect:/admin/allSecondIncomes";
 	}
 
 }

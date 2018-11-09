@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "secondary_income")
+@Table(name = "bank_account")
 public class BankAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,9 +46,6 @@ public class BankAccount {
 		this.balance = balance;
 	}
 
-	
-	
-	
 	/*
 	 * 
 	 * 

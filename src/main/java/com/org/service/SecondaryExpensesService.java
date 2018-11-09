@@ -11,5 +11,9 @@ public interface SecondaryExpensesService {
 	public void updateSecondaryExpenses(SecondaryExpenses secondaryExpenses);
 
 	public List<SecondaryExpenses> getAllSecondaryExpenses();
+	
+	public void deleteSecondaryExpenses(int id);
+
+	public SecondaryExpenses getSecondaryExpensesById(int Id);
 
 }

@@ -234,6 +234,30 @@
 									</div>
 								</div>
 							</div>
+							
+								<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+								<!-- Block2 -->
+								<div class="block2">
+									<div
+										class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+
+										<a href='<spring:url value="/admin/allBankAccount" />'> <img
+											style="max-height: 174px;"
+											src='<spring:url value="/resources/img/bank.jpg" ></spring:url>'
+											alt="IMG-PRODUCT"></a>
+									</div>
+
+									<div class="block2-txt p-t-20">
+										<h2>
+											<center>
+												<a href="product-detail.jsp"
+													class="block2-name dis-block s-text3 p-b-5"> Õ”«» «·»‰ﬂ </a>
+										</h2>
+										</center>
+
+									</div>
+								</div>
+							</div>
 
 							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
