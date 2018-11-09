@@ -83,9 +83,25 @@ public class AdminControllerLoan {
 	@RequestMapping(value = "/loan/details/{id}", method = RequestMethod.GET)
 	public String LoanDetails(Model model, @PathVariable("id") int id) {
 		Loan loan = loanServcie.getLoanById(id);
+
+		model.addAttribute("loanDetails", loanDetailsService.getAllLoanDetails(id));
 		model.addAttribute("loan", loan);
+		model.addAttribute("newloanDetail", new com.org.model.LoanDetails());
+		loanId = id;
 
 		return "Loan/loan-detail";
+	}
+
+	@RequestMapping(value = "/loan/details", method = RequestMethod.POST)
+	public String LoanDetailsPost(@Valid @ModelAttribute("newloanDetail") com.org.model.LoanDetails loanDetails,
+			BindingResult br
+	/* @PathVariable("loanId") int loanId */) {
+		if (br.hasErrors()) {
+			return "Loan/addLoan";
+		}
+		loanDetailsService.AddLoanDetails(loanDetails, loanId);
+
+		return "redirect:/admin/allLoan";
 	}
 
 	@RequestMapping(value = "/loan/delete/{id}", method = RequestMethod.GET)
@@ -115,16 +131,17 @@ public class AdminControllerLoan {
 	// return gson.toJson(groupServcie.allNameByGroup(term));
 	// }
 
-	@RequestMapping(value = "/loan/details", method = RequestMethod.POST)
-	public String LoanDetailsPost(@Valid @ModelAttribute("newloanDetail") com.org.model.LoanDetails loanDetails,
-			BindingResult br
-	/* @PathVariable("loanId") int loanId */) {
-		if (br.hasErrors()) {
-			return "Loan/addLoan";
-		}
-		loanDetailsService.AddLoanDetails(loanDetails, loanId);
-
-		return "redirect:/admin/allLoan";
-	}
+	// @RequestMapping(value = "/loan/details", method = RequestMethod.POST)
+	// public String LoanDetailsPost(@Valid @ModelAttribute("newloanDetail")
+	// com.org.model.LoanDetails loanDetails,
+	// BindingResult br
+	// /* @PathVariable("loanId") int loanId */) {
+	// if (br.hasErrors()) {
+	// return "Loan/addLoan";
+	// }
+	// loanDetailsService.AddLoanDetails(loanDetails, loanId);
+	//
+	// return "redirect:/admin/allLoan";
+	// }
 
 }

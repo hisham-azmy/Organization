@@ -1,5 +1,6 @@
 package com.org.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -21,6 +22,7 @@ public class LoanDaoImpl implements LoanDao {
 	// **********************************
 	@Override
 	public void AddLoan(Loan loan) {
+		loan.setLoanDate(new Date());
 		sessionFactory.getCurrentSession().save(loan);
 
 	}

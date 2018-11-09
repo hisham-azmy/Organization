@@ -19,12 +19,13 @@ public class LoanDetailsDaoImpl implements LoanDetailsDao {
 
 	@Override
 	public void AddLoanDetails(LoanDetails loanDetail) {
+		
 		sessionFactory.getCurrentSession().save(loanDetail);
 	}
 
 	@Override
 	public void updateLoanDetails(LoanDetails loanDetail) {
-		sessionFactory.getCurrentSession().save(loanDetail);
+		sessionFactory.getCurrentSession().saveOrUpdate(loanDetail);
 	}
 
 	@Override

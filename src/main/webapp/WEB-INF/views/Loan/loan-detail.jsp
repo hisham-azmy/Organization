@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 <%@ include file="/WEB-INF/views/Layout/TagLib.jsp"%>
-<title>Client</title>
+<title>Product</title>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet"
@@ -74,137 +76,110 @@
 </head>
 <body class="animsition">
 
-
-
 	<jsp:include page="../header.jsp" />
 
-	<!-- Product Detail -->
-	<div class="container bgwhite p-t-35 p-b-80">
-		<div class="flex-w flex-sb">
+	<section class="cart bgwhite p-t-70 p-b-100">
+		<div class="container">
+			Cart item
+
+			<div class="container-table-cart pos-relative">
+				<div class="wrap-table-shopping-cart bgwhite">
+					<table class="table-shopping-cart">
+						<tr class="table-head">
+							<th class="column-1"></th>
+							<th class="column-2">Day of Pay</th>
+							<th class="column-3">Paid Value</th>
+							<th class="column-4 p-l-70">Remaining Value</th>
+							<th class="column-5">Total</th>
+						</tr>
+						<c:forEach items="${loanDetails}" var="loanDet">
+							<tr class="table-row">
+								
+								<td class="column-1">
+								<td class="column-2">${loanDet.payDate}</td>
+								<td class="column-3">${loanDet.paidValue}</td>
+								<td class="column-4">
+									<!-- 
+									<td class="column-1">
+									<div class="cart-img-product b-rad-4 o-f-hidden">
+										<img
+											src="<spring:url value="/resources/images/11.jpg" ></spring:url>"
+											alt="IMG-PRODUCT">
+									</div>
+								</td>
+									<div class="flex-w bo5 of-hidden w-size17">
+										<button
+											class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+											<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+										</button>
+										<%-- 										<i class="size8 m-text18 t-center num-product">${cartItem.quantity}</i> --%>
+										<button
+											class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+											<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+										</button>
+									</div>
+								</td>
+								 --> <!-- 								<td class="column-5">$${cartItem.product.price *cartItem.quantity}</td> -->
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+			</div>
+			<!-- 			<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10"> -->
+			<!-- 				<a class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" -->
+			<%-- 					href='<spring:url value="/product/all" />'> the value </a> <br /> --%>
+			<!-- 			</div> -->
 			<!-- 
-			<div class="w-size13 p-t-30 respon5">
-				<div class="wrap-slick3 flex-sb flex-w">
+			<spring:url value="/customer/cart/checkout" var="url" />
+			<form class="form-horizontal" action="${url}" method="POST">
+				
 
-					<div class="slick3">
+				<div class="size11 bo4 m-r-10">
+					<input class="sizefull s-text7 p-l-22 p-r-22" type="text"
+						name="address" placeholder="Add address here">
+				</div>
+								<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" type="submit">Go to Cart</button>
+			<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
+				<button
+					class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+					Check Out</button>
+			</div>
+			</form>
+			-->
 
-						<div class="wrap-pic-w">
-							<img
-								src="<spring:url value="/resources/img/${client.id}.png"
-								></spring:url>"
-								alt="IMG-PRODUCT">
-						</div>
+			<spring:url value="/admin/loan/details" var="url" />
+			<form:form commandName="newloanDetail" cssClass="form-horizontal"
+				action="${url}" method="POST" enctype="multipart/form-data">
+
+				<!-- ************        Name of Member           *************** -->
+
+				<div class="form-group col-lg-6 col-lg-offset-5 act">
+					<form:input path="paidValue" id="familyName"
+						cssClass="form-group col-lg-3 col-lg-offset-5 act"
+						placeholder="Add value here" />
+
+					<form:label class="form-group col-lg-3 col-lg-offset-0 "
+						path="paidValue">paid value
+<%-- 						<strong><spring:message code="label.fullname" /></strong> --%>
+					</form:label>
+					<div class="form-group col-lg-12 col-lg-offset-5">
+						<form:errors path="paidValue" cssStyle="color:#f00;"></form:errors>
 					</div>
 				</div>
-			</div>
- -->
-			<div class="w-size14 p-t-30 respon5">
-				<h4 class="product-detail-name m-text16 p-b-13">${member.fullName}</h4>
-				<br>
+
+				<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
+					<button type="submit"
+						class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+						Pay</button>
+				</div>
 
 
-				<div class="flex-m flex-w">
-					<div class="s-text15 w-size15 t-center">name</div>
-					${member.fullName}
-				</div>
-				<br>
-				<!-- 
-								<div class="flex-m flex-w">
-					<div class="s-text15 w-size15 t-center">country</div>
-					${client.country}
-				</div>
-				<br>
-				<div class="flex-m flex-w">
-					<div class="s-text15 w-size15 t-center">telephone</div>
-					${client.telephone}
-				</div>
-				<br> <br>
-				<div class="flex-m flex-w">
-					<div class="s-text15 w-size15 t-center">address</div>
-					${client.address}
-				</div>
-				<br> <br>
-				<div class="flex-m flex-w">
-					<div class="s-text15 w-size15 t-center">job</div>
-					${client.job}
-				</div>
-				<br> <br>
-				<div class="flex-m flex-w">
-					<div class="s-text15 w-size15 t-center">nameOfShop</div>
-					${client.nameOfShop}
-				</div>
-				<br>
-			</div>
+			</form:form>
+
 		</div>
-	</div>
- -->
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="exampleSelect1">Example select</label>
-    <select class="form-control" id="exampleSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleTextarea">Example textarea</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-  </div>
-  <fieldset class="form-group">
-    <legend>Radio buttons</legend>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-        Option one is this and that&mdash;be sure to include why it's great
-      </label>
-    </div>
-    <div class="form-check">
-    <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-        Option two can be something else and selecting it will deselect option one
-      </label>
-    </div>
-    <div class="form-check disabled">
-    <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-        Option three is disabled
-      </label>
-    </div>
-  </fieldset>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="checkbox" class="form-check-input">
-      Check me out
-    </label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-				<jsp:include page="../footer.jsp" />
+	</section>
+
+
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>

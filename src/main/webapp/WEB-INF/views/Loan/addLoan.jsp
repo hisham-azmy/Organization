@@ -124,111 +124,116 @@
 				<div class="input-text">
 					<h2>${headerMSG}</h2>
 					<br /> <br />
-					<div class="col-md-6 col-sm-6 col-xs-12">
+					<!-- 					<div class="col-md-6 col-sm-6 col-xs-12"> -->
 
-						<form:form commandName="loan" cssClass="form-horizontal"
-							action="${url}" method="POST" enctype="multipart/form-data">
+					<form:form commandName="loan" cssClass="form-horizontal"
+						action="${url}" method="POST" enctype="multipart/form-data">
 
-							<!-- ************        Name of Member           *************** -->
 
-							<div class="form-group col-lg-12 col-lg-offset-5 act">
-								<form:input path="io_member.fullName" id="familyName"
-									cssClass="form-group col-lg-6 col-lg-offset-5 act"
-									placeholder="Type your email" />
+						<c:if test='${title=="Edit Loan"}'>
+							<form:hidden path="id" />
+						</c:if>
 
-								<form:label class="form-group col-lg-4 col-lg-offset-0 "
-									path="io_member.fullName">
-									<strong><spring:message code="label.fullname" /></strong>
-								</form:label>
-								<div class="form-group col-lg-12 col-lg-offset-5">
-									<form:errors path="io_member.fullName" cssStyle="color:#f00;"></form:errors>
-								</div>
+						<!-- ************        Name of Member           *************** -->
+
+
+						<div class="form-group col-lg-12 col-lg-offset-5 act">
+							<form:input path="io_member.fullName" id="familyName"
+								cssClass="form-group col-lg-6 col-lg-offset-5 act"
+								placeholder="Type your email" />
+
+							<form:label class="form-group col-lg-4 col-lg-offset-0 "
+								path="io_member.fullName">
+								<strong><spring:message code="label.fullname" /></strong>
+							</form:label>
+							<div class="form-group col-lg-12 col-lg-offset-5">
+								<form:errors path="io_member.fullName" cssStyle="color:#f00;"></form:errors>
 							</div>
+						</div>
 
+						<!-- ************        Name  of Follower         *************** -->
 
-							<!-- ************        Name  of Follower         *************** -->
+						<div class="form-group col-lg-12 col-lg-offset-5 act">
+							<spring:message code="label.followerMemberName"
+								var="followerMemberName" />
+							<form:input path="followerMemberName"
+								cssClass="form-group col-lg-6 col-lg-offset-5 act" />
 
-							<div class="form-group col-lg-12 col-lg-offset-5 act">
-								<spring:message code="label.followerMemberName"
-									var="fullnameDetail" />
-								<form:input path="followerMemberName"
-									cssClass="form-group col-lg-9 col-lg-offset-5 act"
-									placeholder="${fullnameDetail}" />
-								<label class="form-group col-lg-3 col-lg-offset-0 "> <strong><spring:message
-											code="label.fullname" /></strong>
-								</label>
-								<div class="form-group col-lg-12 col-lg-offset-5">
-									<form:errors path="followerMemberName" cssStyle="color:#f00;"></form:errors>
-								</div>
+							<label class="form-group col-lg-4 col-lg-offset-0 "> <strong><spring:message
+										code="label.followerMemberName" /></strong>
+							</label>
+							<div class="form-group col-lg-12 col-lg-offset-5">
+								<form:errors path="followerMemberName" cssStyle="color:#f00;"></form:errors>
 							</div>
+						</div>
 
-							<!-- ********************  loan value  ****************** -->
+						<!-- ********************  loan value  ****************** -->
 
-							<div class="form-group col-lg-12 col-lg-offset-5 act">
-								<form:input path="loanvalue"
-									cssClass="form-group col-lg-6 col-lg-offset-5 act" />
+						<div class="form-group col-lg-12 col-lg-offset-5 act">
+							<form:input path="loanvalue"
+								cssClass="form-group col-lg-6 col-lg-offset-5 act" />
 
-								<form:label class="form-group col-lg-4 col-lg-offset-0 "
-									path="loanvalue">
-									<strong><spring:message code="label.loanvalue" /></strong>
-								</form:label>
-								<div class="form-group col-lg-12 col-lg-offset-5">
-									<form:errors path="loanvalue" cssStyle="color:#f00;"></form:errors>
-								</div>
+							<form:label class="form-group col-lg-4 col-lg-offset-0 "
+								path="loanvalue">
+								<strong><spring:message code="label.loanvalue" /></strong>
+							</form:label>
+							<div class="form-group col-lg-12 col-lg-offset-5">
+								<form:errors path="loanvalue" cssStyle="color:#f00;"></form:errors>
 							</div>
+						</div>
 
-							<!-- ***************         paymentTimesCount    ****************** -->
+						<!-- ***************         paymentTimesCount    ****************** -->
 
-							<div class="form-group col-lg-12 col-lg-offset-5 act">
-								<form:input path="paymentTimesCount"
-									cssClass="form-group col-lg-6 col-lg-offset-5 act" />
+						<div class="form-group col-lg-12 col-lg-offset-5 act">
+							<form:input path="paymentTimesCount"
+								cssClass="form-group col-lg-6 col-lg-offset-5 act" />
 
-								<form:label class="form-group col-lg-4 col-lg-offset-0 "
-									path="paymentTimesCount">
-									<strong><spring:message code="label.paymentTimesCount" /></strong>
-								</form:label>
-								<div class="form-group col-lg-12 col-lg-offset-5">
-									<form:errors path="paymentTimesCount" cssStyle="color:#f00;"></form:errors>
-								</div>
+							<form:label class="form-group col-lg-4 col-lg-offset-0 "
+								path="paymentTimesCount">
+								<strong><spring:message code="label.paymentTimesCount" /></strong>
+							</form:label>
+							<div class="form-group col-lg-12 col-lg-offset-5">
+								<form:errors path="paymentTimesCount" cssStyle="color:#f00;"></form:errors>
 							</div>
+						</div>
 
-							<!-- *****************   expectedMonthlyPaidValue   ********************* -->
+						<!-- *****************   expectedMonthlyPaidValue   ********************* -->
 
-							<div class="form-group col-lg-12 col-lg-offset-5 act">
-								<form:input path="expectedMonthlyPaidValue"
-									cssClass="form-group col-lg-6 col-lg-offset-5 act" />
+						<div class="form-group col-lg-12 col-lg-offset-5 act">
+							<form:input path="expectedMonthlyPaidValue"
+								cssClass="form-group col-lg-6 col-lg-offset-5 act" />
 
-								<form:label class="form-group col-lg-4 col-lg-offset-0 "
-									path="expectedMonthlyPaidValue">
-									<strong><spring:message
-											code="label.expectedMonthlyPaidValue" /></strong>
-								</form:label>
-								<div class="form-group col-lg-12 col-lg-offset-5">
-									<form:errors path="expectedMonthlyPaidValue"
-										cssStyle="color:#f00;"></form:errors>
-								</div>
+							<form:label class="form-group col-lg-4 col-lg-offset-0 "
+								path="expectedMonthlyPaidValue">
+								<strong><spring:message
+										code="label.expectedMonthlyPaidValue" /></strong>
+							</form:label>
+							<div class="form-group col-lg-12 col-lg-offset-5">
+								<form:errors path="expectedMonthlyPaidValue"
+									cssStyle="color:#f00;"></form:errors>
 							</div>
+						</div>
 
 
-							<!-- ************  Date  expectedPayDate  ********************** -->
+						<!-- ************  Date  expectedPayDate  ********************** -->
 
-							<div class="form-group ">
-								<form:label path="expectedPayDate"
-									class="form-group col-lg-4 col-lg-offset-0 ">
-									<strong><spring:message code="label.expectedPayDate" /></strong>
-								</form:label>
-								<div class="col-sm-10">
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-calendar"> </i>
-										</div>
-										<form:input path="expectedPayDate" cssClass="datepicker-1"
-											name="date" placeholder="mm/dd/yyyy" type="text" />
+						<div class="form-group ">
+							<form:label path="expectedPayDate"
+								class="form-group col-lg-4 col-lg-offset-0 ">
+								<strong><spring:message code="label.expectedPayDate" /></strong>
+							</form:label>
+							<div class="col-sm-10">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-calendar"> </i>
 									</div>
+									<form:input path="expectedPayDate" cssClass="datepicker-1"
+										name="date" placeholder="mm/dd/yyyy" type="text" />
 								</div>
 							</div>
+						</div>
 
-							<!-- 	************        loan Date           *************** -->
+						<!-- 	************        loan Date           ***************
 
 							<div class="form-group ">
 								<form:label path="loanDate"
@@ -246,64 +251,61 @@
 								</div>
 							</div>
 
+ -->
 
-
-							<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
-								<button type="submit"
-									class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-									<c:choose>
-										<c:when test='${title=="New Loan"}'>
+						<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
+							<button type="submit"
+								class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+								<c:choose>
+									<c:when test='${title=="New Loan"}'>
 									new Loan
 									</c:when>
-										<c:when test='${title=="Edit Loan"}'>
+									<c:when test='${title=="Edit Loan"}'>
 																			edit Loan
 																		</c:when>
-									</c:choose>
-								</button>
-							</div>
+								</c:choose>
+							</button>
+						</div>
 
-						</form:form>
+					</form:form>
 
 
-					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<jsp:include page="../footer.jsp" />
+	<jsp:include page="../footer.jsp" />
 
-		<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
-		<!-- Include jQuery -->
-		<script type="text/javascript"
-			src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+	<!-- Include jQuery -->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-		<!-- Include Date Range Picker -->
-		<script type="text/javascript"
-			src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-		<link rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
-		<script>
-			$(document)
-					.ready(
-							function() {
-								var date_input = $('input[name="date"]'); //our date input has the name "date"
-								var container = $('.bootstrap-iso form').length > 0 ? $(
-										'.bootstrap-iso form').parent()
-										: "body";
-								date_input.datepicker({
-									format : 'mm/dd/yyyy',
-									container : container,
-									todayHighlight : true,
-									autoclose : true,
-								})
-							})
-			$(function() {
-				$(".datepicker-1").datepicker();
-				format: 'mm/dd/yyyy'
-			});
-
-				</script>
+	<script>
+		$(document).ready(
+				function() {
+					var date_input = $('input[name="date"]'); //our date input has the name "date"
+					var container = $('.bootstrap-iso form').length > 0 ? $(
+							'.bootstrap-iso form').parent() : "body";
+					date_input.datepicker({
+						format : 'mm/dd/yyyy',
+						container : container,
+						todayHighlight : true,
+						autoclose : true,
+					})
+				})
+		$(function() {
+			$(".datepicker-1").datepicker();
+			format: 'mm/dd/yyyy'
+		});
+	</script>
 </body>
 </html>
 </html>
