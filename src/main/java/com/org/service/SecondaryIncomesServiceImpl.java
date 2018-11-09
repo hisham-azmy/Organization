@@ -28,8 +28,8 @@ public class SecondaryIncomesServiceImpl implements SecondaryIncomeService {
 	}
 
 	@Override
-	public List<SecondaryIncome> getAllSecondaryIncome(int secondaryIncomeId) {
-		return secondaryIncomeDao.getAllSecondaryIncome(secondaryIncomeId);
+	public List<SecondaryIncome> getAllSecondaryIncome() {
+		return secondaryIncomeDao.getAllSecondaryIncome();
 	}
 
 }

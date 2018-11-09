@@ -7,7 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 public class IoMember {
@@ -16,7 +15,7 @@ public class IoMember {
 	@GeneratedValue
 	private Integer id;
 
-	@Size(min = 3, max = 50, message = "Name must more than 8")
+	@Size(min = 3, max = 50, message = "Name is to short")
 	@Column(name = "full_name")
 	private String fullName;
 
@@ -42,14 +41,12 @@ public class IoMember {
 	@Column(name = "join_date")
 	private Date joinDate;
 
-	@DateTimeFormat(pattern = "mm/dd/yyyy")
 	@Column(name = "monthly_paid_value")
-	private Date monthlyPaidValue;
+	private double monthlyPaidValue;
 
 	@DateTimeFormat(pattern = "mm/dd/yyyy")
 	@Column(name = "day_of_month")
 	private Date dayOfMonth;
-
 
 	public Integer getId() {
 		return id;
@@ -123,11 +120,12 @@ public class IoMember {
 		this.joinDate = joinDate;
 	}
 
-	public Date getMonthlyPaidValue() {
+
+	public double getMonthlyPaidValue() {
 		return monthlyPaidValue;
 	}
 
-	public void setMonthlyPaidValue(Date monthlyPaidValue) {
+	public void setMonthlyPaidValue(double monthlyPaidValue) {
 		this.monthlyPaidValue = monthlyPaidValue;
 	}
 

@@ -7,10 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.org.model.IoGroup;
-import com.org.model.IoMember;
 import com.org.model.IoSettings;
-import com.org.model.Loan;
 
 @Repository
 @Transactional
@@ -26,7 +23,7 @@ public class SettingsDaoImpl implements SettingsDao {
 
 	@Override
 	public void updateSettings(IoSettings ioSettings) {
-		sessionFactory.getCurrentSession().update(ioSettings);
+		sessionFactory.getCurrentSession().saveOrUpdate(ioSettings);
 	}
 
 	@Override

@@ -21,6 +21,8 @@ public class SecondaryIncome {
 
 	private Double fund;
 
+	private String description;
+
 	public int getId() {
 		return id;
 	}
@@ -45,8 +47,16 @@ public class SecondaryIncome {
 		this.fund = fund;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	
 	
+
 	/*
 	 * 
 	 * 

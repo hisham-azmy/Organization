@@ -20,6 +20,7 @@ import com.org.model.IoGroup;
 import com.org.model.IoMember;
 import com.org.model.Loan;
 import com.org.service.GroupServcie;
+import com.org.service.LoanDetailsService;
 import com.org.service.LoanServcie;
 import com.org.service.MemberServcie;
 
@@ -36,6 +37,11 @@ public class AdminControllerLoan {
 
 	@Autowired
 	private LoanServcie loanServcie;
+
+	@Autowired
+	private LoanDetailsService loanDetailsService;
+
+	int loanId = 0;
 
 	@RequestMapping(value = "/loan/create", method = RequestMethod.GET)
 	public String createLoan(Model model) {
@@ -108,5 +114,17 @@ public class AdminControllerLoan {
 	//
 	// return gson.toJson(groupServcie.allNameByGroup(term));
 	// }
+
+	@RequestMapping(value = "/loan/details", method = RequestMethod.POST)
+	public String LoanDetailsPost(@Valid @ModelAttribute("newloanDetail") com.org.model.LoanDetails loanDetails,
+			BindingResult br
+	/* @PathVariable("loanId") int loanId */) {
+		if (br.hasErrors()) {
+			return "Loan/addLoan";
+		}
+		loanDetailsService.AddLoanDetails(loanDetails, loanId);
+
+		return "redirect:/admin/allLoan";
+	}
 
 }

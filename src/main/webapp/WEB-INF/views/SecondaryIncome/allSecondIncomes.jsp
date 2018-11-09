@@ -83,126 +83,121 @@
 	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
 		style="background-image: url(<spring:url
         value="/resources/images/12.jpg"></spring:url>);">
-		<h2 class="l-text2 t-center">Available Member</h2>
+		<h2 class="l-text2 t-center">Available Secondary Income</h2>
 		<!-- 		<p class="m-text13 t-center">All Clients </p> -->
 	</section>
 
 
 	<!-- Content page -->
 	<section class="bgwhite p-t-55 p-b-65">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-					<div class="leftbar p-r-20 p-r-0-sm">
-						<!--  -->
-						<h4 class="m-text14 p-b-7">Categories</h4>
-						<!--  -->
-						<h4 class="m-text14 p-b-32">Filters</h4>
-
-						<div class="filter-price p-t-22 p-b-50 bo3">
-							<div class="m-text15 p-b-17">Telephone</div>
-
-							<div class="wra-filter-bar">
-								<div id="filter-bar"></div>
-							</div>
-
-							<div class="flex-sb-m flex-w p-t-16">
-								<div>
-									<div class="m-text15 p-b-17">Name</div>
-									<input type="text" class="name" name="name" />
-
-									<div class="w-size11">
-										<!-- Button -->
-										<button
-											class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4 btn_name_filter">
-											Filter</button>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+				<div class="leftbar p-r-20 p-r-0-sm">
 					<!--  -->
-					<div class="flex-sb-m flex-w p-b-35">
-						<div class="flex-w">
-							<!-- search -->
-							<div class="search-product pos-relative bo4 of-hidden">
-								<input class="search_product s-text7 size6 p-l-23 p-r-50"
-									type="text" name="search-product" id="clientName"
-									placeholder="Search Products...">
+					<h4 class="m-text14 p-b-7">Categories</h4>
+					<!--  -->
+					<h4 class="m-text14 p-b-32">Filters</h4>
 
-								<button
-									class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4 btn_search">
-									<i class="fs-12 fa fa-search" aria-hidden="true"></i>
-								</button>
-							</div>
+					<div class="filter-price p-t-22 p-b-50 bo3">
+						<div class="m-text15 p-b-17">Telephone</div>
+
+						<div class="wra-filter-bar">
+							<div id="filter-bar"></div>
 						</div>
 
+						<div class="flex-sb-m flex-w p-t-16">
+							<div>
+								<div class="m-text15 p-b-17">Name</div>
+								<input type="text" class="name" name="name" />
+
+								<div class="w-size11">
+									<!-- Button -->
+									<button
+										class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4 btn_name_filter">
+										Filter</button>
+								</div>
+							</div>
+
+						</div>
 					</div>
-					<spring:url value="/resources/img/member.jpg" var="imageOfC"></spring:url>
-					<!-- Product -->
 
-
-					<div class="products_aj">
-						<a href='<spring:url value="/admin/member/create" />'>
-							<h3>
-								<center>Create new Member
-							</h3>
-							</center>
-						</a> <br> <br> <br> <br>
-						<table class="table table-striped">
-							<caption>Avaliable Members</caption>
-							<thead>
-								<tr>
-									<th><strong><spring:message code="label.fullname" /></strong></th>
-									<th><strong><spring:message
-												code="label.monthly_paid_value" /></strong></th>
-									<th><strong><spring:message
-												code="label.day_of_month" /></strong></th>
-
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<spring:url value='/teacher/QuestionBank' var="toto"></spring:url>
-
-								<c:forEach var="product" items="${members}">
-
-									<td><c:out value="${product.fullName}" /></td>
-									<td><c:out value="${product.monthlyPaidValue}" /></td>
-									<td><c:out value="${product.dayOfMonth}" /></td>
-
-
-
-									<td><a
-										href='<spring:url value="/admin/member/edit/${product.id}" />'>
-											<img
-											src="<spring:url value="/resources/Css/images/icons/options.png"   />">
-									</a> <a
-										href='<spring:url value="/admin/member/details/${product.id}" />'>
-											<img
-											src="<c:url value="/resources/Css/images/icons/view.png "></c:url>">
-									</a> <a
-										href='<spring:url value="/admin/member/delete/${product.id}" />'><img
-											src=" <spring:url value="/resources/Css/images/icons/delete.png"   ></spring:url>"></a></td>
-
-									</tr>
-								</c:forEach>
-
-								<!-- ------------------------ شكل كروكى مش اكتر  -->
-						</table>
-					</div>
-					<!-- Pagination -->
-					<div class="pagination flex-m flex-w p-t-26">
-						<a href="#"
-							class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
-					</div>
 				</div>
 			</div>
+			<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+				<!--  -->
+				<div class="flex-sb-m flex-w p-b-35">
+					<div class="flex-w">
+						<!-- search -->
+						<div class="search-product pos-relative bo4 of-hidden">
+							<input class="search_product s-text7 size6 p-l-23 p-r-50"
+								type="text" name="search-product" id="clientName"
+								placeholder="Search Products...">
+
+							<button
+								class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4 btn_search">
+								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
+							</button>
+						</div>
+					</div>
+
+				</div>
+				<spring:url value="/resources/img/member.jpg" var="imageOfC"></spring:url>
+				<!-- Product -->
+
+
+				<div class="products_aj">
+					<a href='<spring:url value="/admin/secondIncome/create" />'>
+						<h3>
+							<center>Create new Secondary Income
+						</h3>
+						</center>
+					</a> <br> <br> <br> <br>
+					<table class="table table-striped">
+						<caption>Avaliable Members</caption>
+						<thead>
+							<tr>
+								<th><strong><spring:message code="label.fullname" /></strong></th>
+								<%-- 									<th><strong><spring:message --%>
+								<%-- 												code="label.monthly_paid_value" /></strong></th> --%>
+								<%-- 									<th><strong><spring:message --%>
+								<%-- 												code="label.day_of_month" /></strong></th> --%>
+
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<spring:url value='/teacher/QuestionBank' var="toto"></spring:url>
+
+							<c:forEach var="product" items="${members}">
+
+								<td><c:out value="${product.fullName}" /></td>
+								<%-- 									<td><c:out value="${product.monthlyPaidValue}" /></td> --%>
+								<%-- 									<td><c:out value="${product.dayOfMonth}" /></td> --%>
+								<td><a
+									href='<spring:url value="/admin/group/edit/${product.id}" />'>
+										<img
+										src="<spring:url value="/resources/Css/images/icons/options.png"   />">
+								</a> <a
+									href='<spring:url value="/admin/group/details/${product.id}" />'>
+										<img
+										src="<c:url value="/resources/Css/images/icons/view.png "></c:url>">
+								</a> <a
+									href='<spring:url value="/admin/group/delete/${product.id}" />'><img
+										src=" <spring:url value="/resources/Css/images/icons/delete.png"   ></spring:url>"></a></td>
+								</tr>
+							</c:forEach>
+
+							<!-- ------------------------ شكل كروكى مش اكتر  -->
+					</table>
+				</div>
+				<!-- Pagination -->
+				<div class="pagination flex-m flex-w p-t-26">
+					<a href="#"
+						class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+					<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+				</div>
+			</div>
+		</div>
 	</section>
 
 

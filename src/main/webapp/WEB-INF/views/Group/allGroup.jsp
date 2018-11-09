@@ -83,7 +83,7 @@
 	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
 		style="background-image: url(<spring:url
         value="/resources/images/12.jpg"></spring:url>);">
-		<h2 class="l-text2 t-center">Available Member</h2>
+		<h2 class="l-text2 t-center">Available Family</h2>
 		<!-- 		<p class="m-text13 t-center">All Clients </p> -->
 	</section>
 
@@ -96,6 +96,9 @@
 					<div class="leftbar p-r-20 p-r-0-sm">
 						<!--  -->
 						<h4 class="m-text14 p-b-7">Categories</h4>
+
+
+
 						<!--  -->
 						<h4 class="m-text14 p-b-32">Filters</h4>
 
@@ -147,9 +150,9 @@
 
 
 					<div class="products_aj">
-						<a href='<spring:url value="/admin/member/create" />'>
+						<a href='<spring:url value="/admin/group/create" />'>
 							<h3>
-								<center>Create new Member
+								<center>Create new Family
 							</h3>
 							</center>
 						</a> <br> <br> <br> <br>
@@ -158,10 +161,10 @@
 							<thead>
 								<tr>
 									<th><strong><spring:message code="label.fullname" /></strong></th>
-									<th><strong><spring:message
-												code="label.monthly_paid_value" /></strong></th>
-									<th><strong><spring:message
-												code="label.day_of_month" /></strong></th>
+									<%-- 									<th><strong><spring:message --%>
+									<%-- 												code="label.monthly_paid_value" /></strong></th> --%>
+									<%-- 									<th><strong><spring:message --%>
+									<%-- 												code="label.day_of_month" /></strong></th> --%>
 
 									<th></th>
 								</tr>
@@ -172,23 +175,19 @@
 								<c:forEach var="product" items="${members}">
 
 									<td><c:out value="${product.fullName}" /></td>
-									<td><c:out value="${product.monthlyPaidValue}" /></td>
-									<td><c:out value="${product.dayOfMonth}" /></td>
-
-
-
+									<%-- 									<td><c:out value="${product.monthlyPaidValue}" /></td> --%>
+									<%-- 									<td><c:out value="${product.dayOfMonth}" /></td> --%>
 									<td><a
-										href='<spring:url value="/admin/member/edit/${product.id}" />'>
+										href='<spring:url value="/admin/group/edit/${product.id}" />'>
 											<img
 											src="<spring:url value="/resources/Css/images/icons/options.png"   />">
 									</a> <a
-										href='<spring:url value="/admin/member/details/${product.id}" />'>
+										href='<spring:url value="/admin/group/details/${product.id}" />'>
 											<img
 											src="<c:url value="/resources/Css/images/icons/view.png "></c:url>">
 									</a> <a
-										href='<spring:url value="/admin/member/delete/${product.id}" />'><img
+										href='<spring:url value="/admin/group/delete/${product.id}" />'><img
 											src=" <spring:url value="/resources/Css/images/icons/delete.png"   ></spring:url>"></a></td>
-
 									</tr>
 								</c:forEach>
 

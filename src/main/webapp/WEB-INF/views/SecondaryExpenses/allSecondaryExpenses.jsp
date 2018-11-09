@@ -83,7 +83,7 @@
 	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
 		style="background-image: url(<spring:url
         value="/resources/images/12.jpg"></spring:url>);">
-		<h2 class="l-text2 t-center">Available Member</h2>
+		<h2 class="l-text2 t-center">Available Client</h2>
 		<!-- 		<p class="m-text13 t-center">All Clients </p> -->
 	</section>
 
@@ -96,6 +96,9 @@
 					<div class="leftbar p-r-20 p-r-0-sm">
 						<!--  -->
 						<h4 class="m-text14 p-b-7">Categories</h4>
+
+
+
 						<!--  -->
 						<h4 class="m-text14 p-b-32">Filters</h4>
 
@@ -130,8 +133,9 @@
 						<div class="flex-w">
 							<!-- search -->
 							<div class="search-product pos-relative bo4 of-hidden">
-								<input class="search_product s-text7 size6 p-l-23 p-r-50"
-									type="text" name="search-product" id="clientName"
+								name of Client <input type="text" id="clientName"> <input
+									class="search_product s-text7 size6 p-l-23 p-r-50" type="text"
+									name="search-product" id="clientName"
 									placeholder="Search Products...">
 
 								<button
@@ -157,25 +161,20 @@
 							<caption>Avaliable Members</caption>
 							<thead>
 								<tr>
-									<th><strong><spring:message code="label.fullname" /></strong></th>
-									<th><strong><spring:message
-												code="label.monthly_paid_value" /></strong></th>
-									<th><strong><spring:message
-												code="label.day_of_month" /></strong></th>
-
-									<th></th>
+									<th>Name Of Client</th>
+									<th>Modify</th>
+									<th>Last Modify</th>
 								</tr>
 							</thead>
 							<tbody>
 								<spring:url value='/teacher/QuestionBank' var="toto"></spring:url>
-
+								<%-- 						<form:form class="form-horizontal" style="margin-top: 35px;" --%>
+								<%-- 							modelAttribute="questions" method="post" action="${toto}"> --%>
 								<c:forEach var="product" items="${members}">
 
+									<!-- 									<td><input type="checkbox" name="questionsIds" -->
+									<%-- 										value="${questions.questionId}" /></td> --%>
 									<td><c:out value="${product.fullName}" /></td>
-									<td><c:out value="${product.monthlyPaidValue}" /></td>
-									<td><c:out value="${product.dayOfMonth}" /></td>
-
-
 
 									<td><a
 										href='<spring:url value="/admin/member/edit/${product.id}" />'>
@@ -188,6 +187,7 @@
 									</a> <a
 										href='<spring:url value="/admin/member/delete/${product.id}" />'><img
 											src=" <spring:url value="/resources/Css/images/icons/delete.png"   ></spring:url>"></a></td>
+									<td>today</td>
 
 									</tr>
 								</c:forEach>

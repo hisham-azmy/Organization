@@ -10,6 +10,6 @@ public interface SecondaryIncomeDao {
 
 	public void updateSecondaryIncome(SecondaryIncome secondaryIncome);
 
-	public List<SecondaryIncome> getAllSecondaryIncome( int secondaryIncomeId);
+	public List<SecondaryIncome> getAllSecondaryIncome();
 
 }

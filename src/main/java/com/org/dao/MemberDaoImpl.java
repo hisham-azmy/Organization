@@ -1,5 +1,6 @@
 package com.org.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -7,9 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.jwt.model.Product;
 import com.org.model.IoMember;
 
 @Repository
@@ -22,7 +21,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public void AddMember(IoMember member) {
-//		sessionFactory.getCurrentSession().save(member);
+		member.setDayOfMonth(new Date());
 		sessionFactory.getCurrentSession().saveOrUpdate(member);
 	}
 

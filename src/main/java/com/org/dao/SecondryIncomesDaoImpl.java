@@ -31,10 +31,10 @@ public class SecondryIncomesDaoImpl implements SecondaryIncomeDao {
 	}
 
 	@Override
-	public List<SecondaryIncome> getAllSecondaryIncome(int secondaryIncomeId) {
+	public List<SecondaryIncome> getAllSecondaryIncome() {
 		Query q = sessionFactory.getCurrentSession().createQuery("from SecondaryIncome");
 		List<SecondaryIncome> allSecondaryIncome = (List<SecondaryIncome>) q.list();
 		return allSecondaryIncome;
 	}
-	
+
 }

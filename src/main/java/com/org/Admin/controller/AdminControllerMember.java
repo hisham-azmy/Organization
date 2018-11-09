@@ -28,18 +28,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
-import com.jwt.model.Client;
-import com.jwt.model.ClientPartnership;
-import com.jwt.service.ClientServcie;
 import com.org.model.IoGroup;
 import com.org.model.IoMember;
 import com.org.service.GroupServcie;
 import com.org.service.MemberServcie;
-import com.org.validation.DateFormatter;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -68,6 +63,23 @@ public class AdminControllerMember {
 		groupServcie.AddGroup(group);
 		return "/";
 
+	}
+
+	@RequestMapping(value = "/group/delete/{id}", method = RequestMethod.GET)
+	public String GroupDelete(Model model, @PathVariable("id") int id) {
+		groupServcie.deleteGroup(id);
+		// model.addAttribute("member", member);
+
+		return "redirect:/admin/allGroup";
+	}
+
+	@RequestMapping(value = "/allGroup", method = RequestMethod.GET)
+	public String allGroups(Model model) {
+		List<IoGroup> groups = groupServcie.getAllGroups();
+
+		model.addAttribute("members", groups);
+
+		return "Group/allGroup";
 	}
 
 	@RequestMapping(value = "/member/create", method = RequestMethod.GET)
@@ -100,7 +112,7 @@ public class AdminControllerMember {
 	}
 
 	@RequestMapping(value = "/member/edit", method = RequestMethod.POST)
-	public String editMember(@Valid @ModelAttribute  IoMember member, BindingResult br) {
+	public String editMember(@Valid @ModelAttribute IoMember member, BindingResult br) {
 		// if (br.hasErrors()) {
 		// return "Member/addMember";
 		// }

@@ -10,7 +10,7 @@ public class IoGroup {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Size(min = 3, max = 20, message = "Name must more than 8")
+	@Size(min = 3, max = 120, message = "Name must more than 8")
 	// @Column(name = "full_name")
 	private String fullName;
 
