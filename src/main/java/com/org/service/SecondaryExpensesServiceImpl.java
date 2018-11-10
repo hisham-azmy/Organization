@@ -32,4 +32,16 @@ public class SecondaryExpensesServiceImpl implements SecondaryExpensesService {
 		return secondaryExpensesDao.getAllSecondaryExpenses();
 	}
 
+	@Override
+	public void deleteSecondaryExpenses(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public SecondaryExpenses getSecondaryExpensesById(int Id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -2,16 +2,24 @@ package com.org.model;
 
 import java.util.List;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class IoGroup {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Size(min = 3, max = 120, message = "Name must more than 8")
-	// @Column(name = "full_name")
+	@NotEmpty(message = "يجب ادخال الاسم ")
 	private String fullName;
 
 	@Column(name = "description")
@@ -42,7 +50,8 @@ public class IoGroup {
 	}
 
 	// ************* Relations ***********************
-	@OneToMany(mappedBy = "ioGroup",targetEntity = IoMember.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@Valid
+	@OneToMany(mappedBy = "ioGroup", targetEntity = IoMember.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<IoMember> ioMember;
 
 	public List<IoMember> getIoMember() {

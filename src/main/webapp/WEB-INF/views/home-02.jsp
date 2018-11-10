@@ -211,6 +211,26 @@
 									</div>
 								</div>
 							</div>
+							
+								<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+								<!-- Block2 -->
+								<div class="block2">
+									<div
+										class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+
+										<a href='<spring:url value="/admin/allLoan" />'> <img
+											src='<spring:url value="/resources/img/loanDetails.jpg"></spring:url>'
+											alt="IMG-PRODUCT"></a>
+									</div>
+									<div class="block2-txt p-t-20" style="font-size: 7800px;">
+										<center>
+											<a href="product-detail.jsp"
+												class="block2-name dis-block s-text3 p-b-5">  ›«’Ì· «·ﬁ—÷</a>
+										</center>
+									</div>
+								</div>
+							</div>
+							
 							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
 								<div class="block2">
@@ -228,6 +248,32 @@
 											<center>
 												<a href="product-detail.jsp"
 													class="block2-name dis-block s-text3 p-b-5"> «·«⁄÷«¡ </a>
+										</h2>
+										</center>
+
+									</div>
+								</div>
+							</div>
+							
+							
+							
+										<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+								<!-- Block2 -->
+								<div class="block2">
+									<div
+										class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+
+										<a href='<spring:url value="/admin/allMember" />'> <img
+											style="max-height: 174px;"
+											src='<spring:url value="/resources/img/member_details.jpg" ></spring:url>'
+											alt="IMG-PRODUCT"></a>
+									</div>
+
+									<div class="block2-txt p-t-20">
+										<h2>
+											<center>
+												<a href="product-detail.jsp"
+													class="block2-name dis-block s-text3 p-b-5">  ›«’Ì· «·«⁄÷«¡ </a>
 										</h2>
 										</center>
 

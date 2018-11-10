@@ -4,6 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Loan {
@@ -12,11 +16,14 @@ public class Loan {
 	private int id;
 
 	@Column(name = "follower_member_name")
+	@NotNull(message = "{label.title}")
 	private String followerMemberName;
 
 	@Column(name = "loan_date")
 	private Date loanDate;
 
+//	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	@Column(name = "expected_pay_date")
 	private Date expectedPayDate;
 
@@ -86,9 +93,10 @@ public class Loan {
 	}
 
 	// *********************** Relationships ******************************
+	@Valid
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private IoMember io_member;
-
+	@Valid
 	@OneToMany(mappedBy = "loanId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<LoanDetails> loanDetails;
 

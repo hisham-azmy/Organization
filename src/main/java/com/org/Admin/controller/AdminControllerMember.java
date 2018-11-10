@@ -32,7 +32,6 @@ import com.org.service.MemberServcie;
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminControllerMember {
-	private Path path;
 
 	@Autowired
 	private MemberServcie memberServcie;
@@ -54,8 +53,7 @@ public class AdminControllerMember {
 			return "Group/addGroup";
 		}
 		groupServcie.AddGroup(group);
-		return "/";
-
+		return "redirect:/admin/allGroup";
 	}
 
 	@RequestMapping(value = "/group/delete/{id}", method = RequestMethod.GET)
@@ -145,9 +143,9 @@ public class AdminControllerMember {
 		binder.registerCustomEditor(Date.class, "joinDate", new CustomDateEditor(dateFormatter, true));
 	}
 
-	@RequestMapping(value = "/group/searchName", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/searchName", method = RequestMethod.GET)
 	@ResponseBody
-	public String searchGroup(ModelAndView model, @RequestParam("term") String term, HttpServletRequest req) {
+	public String searchMember(ModelAndView model, @RequestParam("term") String term, HttpServletRequest req) {
 
 		Gson gson = new Gson();
 

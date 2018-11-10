@@ -78,14 +78,14 @@
 	<jsp:include page="../header.jsp" />
 
 	<div>
-		<%-- 		<c:choose> --%>
-		<%-- 			<c:when test='${title=="New Member"}'> --%>
-		<%-- 				<spring:url value="/admin/product/add" var="url" /> --%>
-		<%-- 			</c:when> --%>
-		<%-- 			<c:when test='${title=="Edit Client"}'> --%>
-		<%-- 				<spring:url value="/admin/product/edit" var="url" /> --%>
-		<%-- 			</c:when> --%>
-		<%-- 		</c:choose> --%>
+		<c:choose>
+			<c:when test='${title=="New Group"}'>
+				<spring:url value="/admin/group/add" var="url" />
+			</c:when>
+			<c:when test='${title=="Edit Client"}'>
+				<spring:url value="/admin/group/edit" var="url" />
+			</c:when>
+		</c:choose>
 
 		<spring:url value="/admin/group/add" var="url" />
 		<div class="row sign" style="padding-bottom: 30px;">
@@ -101,9 +101,9 @@
 					<form:form commandName="group" cssClass="form-horizontal"
 						action="${url}" method="POST" enctype="multipart/form-data">
 
-						<%-- 						<c:if test='${title=="Edit Client"}'> --%>
-						<%-- 							<form:hidden path="id" class="form-control"></form:hidden> --%>
-						<%-- 						</c:if> --%>
+						<c:if test='${title=="Edit Client"}'>
+							<form:hidden path="id" class="form-control"></form:hidden>
+						</c:if>
 
 
 						<!-- ************        Name           *************** -->

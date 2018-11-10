@@ -78,8 +78,12 @@ public class LoanDaoImpl implements LoanDao {
 
 	@Override
 	public List<String> getAllNamePerLoans(String name) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Query q = sessionFactory.getCurrentSession()
+				.createQuery("select fullName from IoMember where fullName LIKE :fullName");
+		q.setParameter("fullName", "%" + name + "%");
+		List<String> allNames = (List<String>) q.list();
+		return allNames;
 	}
 
 	@Override

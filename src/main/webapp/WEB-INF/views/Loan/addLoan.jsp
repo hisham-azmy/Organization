@@ -109,14 +109,14 @@
 	<div>
 		<c:choose>
 			<c:when test='${title=="New Loan"}'>
-				<spring:url value="/admin/member/add" var="url" />
+				<spring:url value="/admin/loan/add" var="url" />
 			</c:when>
 			<c:when test='${title=="Edit Loan"}'>
-				<spring:url value="/admin/member/edit" var="url" />
+				<spring:url value="/admin/loan/edit" var="url" />
 			</c:when>
 		</c:choose>
 
-		<spring:url value="/admin/loan/add" var="url" />
+<%-- 		<spring:url value="/admin/loan/add" var="url" /> --%>
 		<div class="row sign" style="padding-bottom: 30px;">
 			<div class="container col-lg-4 col-lg-offset-9 "
 				style="text-align: center;">
@@ -124,23 +124,22 @@
 				<div class="input-text">
 					<h2>${headerMSG}</h2>
 					<br /> <br />
-					<!-- 					<div class="col-md-6 col-sm-6 col-xs-12"> -->
 
 					<form:form commandName="loan" cssClass="form-horizontal"
 						action="${url}" method="POST" enctype="multipart/form-data">
 
 
 						<c:if test='${title=="Edit Loan"}'>
-							<form:hidden path="id" />
+							<form:hidden path="id"></form:hidden>
 						</c:if>
 
 						<!-- ************        Name of Member           *************** -->
 
 
 						<div class="form-group col-lg-12 col-lg-offset-5 act">
-							<form:input path="io_member.fullName" id="familyName"
+							<form:input path="io_member.fullName"
 								cssClass="form-group col-lg-6 col-lg-offset-5 act"
-								placeholder="Type your email" />
+								id="memberName" />
 
 							<form:label class="form-group col-lg-4 col-lg-offset-0 "
 								path="io_member.fullName">
@@ -157,13 +156,14 @@
 							<spring:message code="label.followerMemberName"
 								var="followerMemberName" />
 							<form:input path="followerMemberName"
-								cssClass="form-group col-lg-6 col-lg-offset-5 act" />
+								cssClass="form-group col-lg-6 col-lg-offset-5 act"
+								id="memberName1" />
 
 							<label class="form-group col-lg-4 col-lg-offset-0 "> <strong><spring:message
 										code="label.followerMemberName" /></strong>
 							</label>
 							<div class="form-group col-lg-12 col-lg-offset-5">
-								<form:errors path="followerMemberName" cssStyle="color:#f00;"></form:errors>
+								<form:errors path="io_member.fullName" cssStyle="color:#f00;"></form:errors>
 							</div>
 						</div>
 
@@ -227,8 +227,9 @@
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"> </i>
 									</div>
-									<form:input path="expectedPayDate" cssClass="datepicker-1"
-										name="date" placeholder="mm/dd/yyyy" type="text" />
+									<form:input path="expectedPayDate" cssClass="datepicker"
+										id="datepicker" name="date" placeholder="mm/dd/yyyy"
+										type="text" />
 								</div>
 							</div>
 						</div>
@@ -283,27 +284,29 @@
 		src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 	<!-- Include Date Range Picker -->
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+		href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+							$('#memberName1')
+									.autocomplete(
+											{
+												source : '${pageContext.request.contextPath}/admin//member/searchName',
+											});
+							$('#memberName')
+									.autocomplete(
+											{
+												source : '${pageContext.request.contextPath}/admin//member/searchName',
+											});
+						});
 
-	<script>
-		$(document).ready(
-				function() {
-					var date_input = $('input[name="date"]'); //our date input has the name "date"
-					var container = $('.bootstrap-iso form').length > 0 ? $(
-							'.bootstrap-iso form').parent() : "body";
-					date_input.datepicker({
-						format : 'mm/dd/yyyy',
-						container : container,
-						todayHighlight : true,
-						autoclose : true,
-					})
-				})
 		$(function() {
-			$(".datepicker-1").datepicker();
-			format: 'mm/dd/yyyy'
+			$("#datepicker").datepicker();
 		});
 	</script>
 </body>

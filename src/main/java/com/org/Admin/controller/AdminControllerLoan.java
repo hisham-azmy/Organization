@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.org.model.IoGroup;
-import com.org.model.IoMember;
 import com.org.model.Loan;
 import com.org.service.GroupServcie;
 import com.org.service.LoanDetailsService;
@@ -52,7 +52,7 @@ public class AdminControllerLoan {
 	}
 
 	@RequestMapping(value = "/loan/add", method = RequestMethod.POST)
-	public String addLoan(@Valid @ModelAttribute("loan") Loan loan, BindingResult br, HttpServletRequest req) {
+	public String addLoan(@Valid @ModelAttribute Loan loan, BindingResult br, HttpServletRequest req) {
 		if (br.hasErrors()) {
 			return "Loan/addLoan";
 		}
@@ -115,21 +115,16 @@ public class AdminControllerLoan {
 	@RequestMapping(value = "/allLoan", method = RequestMethod.GET)
 	public String AllLoans(Model model) {
 		List<Loan> loans = loanServcie.getAllLoan();
-
 		model.addAttribute("loans", loans);
-
 		return "Loan/allLoan";
 	}
 
-	// @RequestMapping(value = "/group/searchName", method = RequestMethod.GET)
-	// @ResponseBody
-	// public String searchGroup(ModelAndView model, @RequestParam("term") String
-	// term, HttpServletRequest req) {
-	//
-	// Gson gson = new Gson();
-	//
-	// return gson.toJson(groupServcie.allNameByGroup(term));
-	// }
+	@RequestMapping(value = "/group/searchName", method = RequestMethod.GET)
+	@ResponseBody
+	public String searchGroup(@RequestParam("term") String term, HttpServletRequest req) {
+		Gson gson = new Gson();
+		return gson.toJson(loanServcie.getAllNamePerLoans(term));
+	}
 
 	// @RequestMapping(value = "/loan/details", method = RequestMethod.POST)
 	// public String LoanDetailsPost(@Valid @ModelAttribute("newloanDetail")

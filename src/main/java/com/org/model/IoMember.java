@@ -3,9 +3,17 @@ package com.org.model;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -15,7 +23,7 @@ public class IoMember {
 	@GeneratedValue
 	private Integer id;
 
-	@Size(min = 3, max = 50, message = "Name is to short")
+	@NotEmpty(message = "يجب ادخال الاسم ")
 	@Column(name = "full_name")
 	private String fullName;
 
@@ -120,7 +128,6 @@ public class IoMember {
 		this.joinDate = joinDate;
 	}
 
-
 	public double getMonthlyPaidValue() {
 		return monthlyPaidValue;
 	}
@@ -138,11 +145,17 @@ public class IoMember {
 	}
 
 	// ****************** Relatinos ***************************
+	@Valid
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private IoGroup ioGroup;
 
+	@Valid
 	@OneToMany(mappedBy = "io_member", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<MemberPartnershipDetails> memberPartnershipDetails;
+
+	@Valid
+	@OneToMany(mappedBy = "io_member", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Loan> loan;
 
 	public IoGroup getIoGroup() {
 		return ioGroup;
@@ -158,6 +171,14 @@ public class IoMember {
 
 	public void setMemberPartnershipDetails(List<MemberPartnershipDetails> memberPartnershipDetails) {
 		this.memberPartnershipDetails = memberPartnershipDetails;
+	}
+
+	public List<Loan> getLoan() {
+		return loan;
+	}
+
+	public void setLoan(List<Loan> loan) {
+		this.loan = loan;
 	}
 
 	// end of IOMember
