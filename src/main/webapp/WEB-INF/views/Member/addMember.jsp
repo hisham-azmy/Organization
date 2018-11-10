@@ -257,8 +257,9 @@
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"> </i>
 									</div>
-									<form:input path="dayOfMonth" cssClass="datepicker-1"
-										name="date" placeholder="mm/dd/yyyy" type="text" />
+									<form:input path="dayOfMonth" cssClass="datepicker"
+										id="datepicker" name="date" placeholder="mm/dd/yyyy"
+										type="text" />
 								</div>
 								<div class="form-group col-lg-12 col-lg-offset-5">
 									<form:errors path="dayOfMonth" cssStyle="color:#f00;"></form:errors>
@@ -294,6 +295,11 @@
 	<jsp:include page="../footer.jsp" />
 
 
+	<link rel="stylesheet"
+		href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript">
 		$(document)
 				.ready(
@@ -304,7 +310,14 @@
 												source : '${pageContext.request.contextPath}/admin/group/searchName',
 											});
 						});
+
+		$(function() {
+			$("#datepicker").datepicker();
+		});
 	</script>
+
+
+
 </body>
 </html>
 </html>
