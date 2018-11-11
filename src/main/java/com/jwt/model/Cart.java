@@ -1,6 +1,9 @@
 package com.jwt.model;
 
 import javax.persistence.*;
+
+import com.org.model.Users;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class Cart implements Serializable {
 															 * , cascade =
 															 * CascadeType.ALL
 															 */)
-	private Customer customer;
+	private Users users;
 
 	public List<CartItem> getCartItemList() {
 		return cartItemList;
@@ -50,12 +53,12 @@ public class Cart implements Serializable {
 		this.order = order;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public Users getCustomer() {
+		return users;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomer(Users users) {
+		this.users = users;
 	}
 
 }

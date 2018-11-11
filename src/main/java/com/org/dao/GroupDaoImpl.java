@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jwt.model.Product;
 import com.org.model.IoGroup;
-import com.org.model.IoMember;
 
 @Repository
 @Transactional
@@ -21,18 +19,13 @@ public class GroupDaoImpl implements GroupDao {
 
 	@Override
 	public void AddGroup(IoGroup ioGroup) {
-		System.out.println("the name of group is  "+ioGroup.getFullName());
-		System.out.println("the name of group is  "+ioGroup.getFullName());
-		System.out.println("the name of group is  "+ioGroup.getFullName());
-		System.out.println("the name of group is  "+ioGroup.getFullName());
-		
 		sessionFactory.getCurrentSession().save(ioGroup);
 
 	}
 
 	@Override
 	public void updateGroup(IoGroup ioGroup) {
-		sessionFactory.getCurrentSession().update(ioGroup);
+		sessionFactory.getCurrentSession().saveOrUpdate(ioGroup);
 
 	}
 
@@ -55,10 +48,18 @@ public class GroupDaoImpl implements GroupDao {
 
 	@Override
 	public List<String> allNameByGroup(String name) {
-		Query q = sessionFactory.getCurrentSession().createQuery("select fullName from IoGroup where fullName LIKE :fullName");
+		Query q = sessionFactory.getCurrentSession()
+				.createQuery("select fullName from IoGroup where fullName LIKE :fullName");
 		q.setParameter("fullName", "%" + name + "%");
 		List<String> allNames = (List<String>) q.list();
 		return allNames;
+
+	}
+
+	@Override
+	public IoGroup getLoanById(int groupId) {
+		// TODO Auto-generated method stub
+		return (IoGroup) sessionFactory.getCurrentSession().get(IoGroup.class, groupId);
 
 	}
 

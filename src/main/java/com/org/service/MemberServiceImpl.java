@@ -1,15 +1,13 @@
 package com.org.service;
 
-import com.jwt.dao.ClientDao;
-import com.jwt.model.Client;
-import com.org.dao.MemberDao;
-import com.org.model.IoMember;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.org.dao.MemberDao;
+import com.org.model.IoMember;
 
 @Service
 //@Transactional

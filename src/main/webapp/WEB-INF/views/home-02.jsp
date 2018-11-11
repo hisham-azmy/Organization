@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%-- <%@ include file="/WEB-INF/views/Layout/TagLib.jsp" %> --%>
-
-
 <head>
 <%@ page language="java" contentType="text/html; charset=windows-1256"
 	pageEncoding="windows-1256"%>
@@ -211,26 +208,27 @@
 									</div>
 								</div>
 							</div>
-							
-								<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+
+							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
 								<div class="block2">
 									<div
 										class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
 
-										<a href='<spring:url value="/admin/allLoan" />'> <img
+										<a href='<spring:url value="/admin/allLoanDetails" />'> <img
 											src='<spring:url value="/resources/img/loanDetails.jpg"></spring:url>'
 											alt="IMG-PRODUCT"></a>
 									</div>
 									<div class="block2-txt p-t-20" style="font-size: 7800px;">
 										<center>
 											<a href="product-detail.jsp"
-												class="block2-name dis-block s-text3 p-b-5">  ›«’Ì· «·ﬁ—÷</a>
+												class="block2-name dis-block s-text3 p-b-5">  ›«’Ì·
+												«·ﬁ—÷</a>
 										</center>
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
 								<div class="block2">
@@ -254,10 +252,10 @@
 									</div>
 								</div>
 							</div>
-							
-							
-							
-										<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+
+
+
+							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
 								<div class="block2">
 									<div
@@ -273,15 +271,16 @@
 										<h2>
 											<center>
 												<a href="product-detail.jsp"
-													class="block2-name dis-block s-text3 p-b-5">  ›«’Ì· «·«⁄÷«¡ </a>
+													class="block2-name dis-block s-text3 p-b-5">  ›«’Ì·
+													«·«⁄÷«¡ </a>
 										</h2>
 										</center>
 
 									</div>
 								</div>
 							</div>
-							
-								<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+
+							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 								<!-- Block2 -->
 								<div class="block2">
 									<div
@@ -297,7 +296,8 @@
 										<h2>
 											<center>
 												<a href="product-detail.jsp"
-													class="block2-name dis-block s-text3 p-b-5"> Õ”«» «·»‰ﬂ </a>
+													class="block2-name dis-block s-text3 p-b-5"> Õ”«» «·»‰ﬂ
+												</a>
 										</h2>
 										</center>
 
@@ -322,6 +322,31 @@
 											<center>
 												<a href="product-detail.jsp"
 													class="block2-name dis-block s-text3 p-b-5"> „Ã„Ê⁄«  </a>
+										</h2>
+										</center>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+								<!-- Block2 -->
+								<div class="block2">
+									<div
+										class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+
+										<a href='<spring:url value="/admin/allGroup" />'> <img
+											style="max-height: 174px;"
+											src='<spring:url value="/resources/img/users.jpg" ></spring:url>'
+											alt="IMG-PRODUCT"></a>
+									</div>
+
+									<div class="block2-txt p-t-20">
+										<h2>
+											<center>
+												<a href="product-detail.jsp"
+													class="block2-name dis-block s-text3 p-b-5"> «·„” Œœ„Ì‰
+												</a>
 										</h2>
 										</center>
 

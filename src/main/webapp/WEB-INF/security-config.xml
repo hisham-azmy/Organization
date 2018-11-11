@@ -40,13 +40,13 @@
 			<jdbc-user-service data-source-ref="dataSource"
 
 
-				authorities-by-username-query="SELECT Customer.name  
-				,Role.name  FROM Customer
-			JOIN Customer_Role ON Customer_Role.customer_id = Customer.id
-			JOIN Role ON Role.id=Customer_Role.customer_id
-			WHERE Customer.name = ? "
+				authorities-by-username-query="SELECT Users.name  
+				,Role.name  FROM Users
+			JOIN Users_Role ON Users_Role.users_id = Users.id
+			JOIN Role ON Role.id=Users_Role.users_id
+			WHERE Users.name = ? "
 
-				users-by-username-query="select name ,password ,1 as enabled from Customer where name=? " />
+				users-by-username-query="select name ,password ,1 as enabled from Users where name=? " />
 
 			<!-- <user-service> -->
 			<!-- <user name="admin" password="admin" authorities="ROLE_ADMIN" /> -->

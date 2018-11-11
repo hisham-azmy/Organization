@@ -1,9 +1,9 @@
 package com.jwt.service;
 
 import com.jwt.dao.OrderDao;
-import com.jwt.model.Customer;
 import com.jwt.model.Orders;
 import com.jwt.model.Product;
+import com.org.model.Users;
 
 import java.util.Date;
 import java.util.List;

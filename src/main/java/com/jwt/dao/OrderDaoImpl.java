@@ -12,9 +12,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jwt.model.Category;
-import com.jwt.model.Customer;
 import com.jwt.model.Orders;
-import com.jwt.service.CustomerService;
+import com.org.dao.UsersService;
+import com.org.model.Users;
 
 @Repository
 @Transactional
@@ -24,7 +24,7 @@ public class OrderDaoImpl implements OrderDao {
 	private SessionFactory sessionFactory;
 
 	@Autowired
-	private CustomerService customerService;
+	private UsersService usersService;
 
 	@Override
 	public void CreateOrder(Orders order) {
@@ -48,7 +48,7 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Orders> getOrderByCustomer() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
-		Customer cust = customerService.getCustomerByName(user.getUsername());
+		Users cust = usersService.getUsersByName(user.getUsername());
 
 		Query query = sessionFactory.getCurrentSession()
 				.createQuery("select o from Orders o inner join o.cust c where c=:cust ");

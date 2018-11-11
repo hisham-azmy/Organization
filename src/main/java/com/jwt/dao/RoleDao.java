@@ -1,6 +1,6 @@
 package com.jwt.dao;
 
-import com.jwt.model.Role;
+import com.org.model.Role;
 
 public interface RoleDao {
 	

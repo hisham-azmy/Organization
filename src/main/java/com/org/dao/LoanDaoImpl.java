@@ -61,8 +61,8 @@ public class LoanDaoImpl implements LoanDao {
 	public List<Loan> filterLoanByName(String name) {
 		Query q = sessionFactory.getCurrentSession().createQuery("from Loan where fullName LIKE :fullName");
 		q.setParameter("fullName", "%" + name + "%");
-		List<IoMember> allMembers = (List<IoMember>) q.list();
-		return null;
+		List<Loan> allLoan = (List<Loan>) q.list();
+		return allLoan;
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class LoanDaoImpl implements LoanDao {
 	public List<String> getAllNamePerLoans(String name) {
 
 		Query q = sessionFactory.getCurrentSession()
-				.createQuery("select fullName from IoMember where fullName LIKE :fullName");
+				.createQuery("select fullName from Loan where fullName LIKE :fullName");
 		q.setParameter("fullName", "%" + name + "%");
 		List<String> allNames = (List<String>) q.list();
 		return allNames;

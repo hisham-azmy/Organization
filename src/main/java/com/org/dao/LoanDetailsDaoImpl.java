@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.org.model.IoMember;
+import com.org.model.Loan;
 import com.org.model.LoanDetails;
 
 @Repository
@@ -19,7 +21,7 @@ public class LoanDetailsDaoImpl implements LoanDetailsDao {
 
 	@Override
 	public void AddLoanDetails(LoanDetails loanDetail) {
-		
+
 		sessionFactory.getCurrentSession().save(loanDetail);
 	}
 
@@ -37,6 +39,60 @@ public class LoanDetailsDaoImpl implements LoanDetailsDao {
 		List<LoanDetails> allLoanDetials = (List<LoanDetails>) q.list();
 		return allLoanDetials;
 	}
-	
-	
+
+	@Override
+	public void deleteLoanDetails(int id) {
+		LoanDetails loan = (LoanDetails) sessionFactory.getCurrentSession().load(LoanDetails.class, id);
+		if (null != loan) {
+			this.sessionFactory.getCurrentSession().delete(loan);
+			this.sessionFactory.getCurrentSession().flush();
+		}
+
+	}
+
+	@Override
+	public List<LoanDetails> getLoanDetailsByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<LoanDetails> filterLoanDetailsByCode(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LoanDetails getLoanDetailsById(int partnershipId) {
+		return (LoanDetails) sessionFactory.getCurrentSession().get(LoanDetails.class, partnershipId);
+
+	}
+
+	@Override
+	public List<LoanDetails> getAllNamePerLoanDetails(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<LoanDetails> filterLoanDetails(String name, float min, float max) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<LoanDetails> searchLoanDetails(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<LoanDetails> getAllLoanDetails() {
+
+		Query q = sessionFactory.getCurrentSession().createQuery("from LoanDetails");
+		List<LoanDetails> allLoanDetails = (List<LoanDetails>) q.list();
+		return allLoanDetails;
+
+	}
+
 }

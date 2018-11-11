@@ -1,7 +1,7 @@
 package com.jwt.service;
 
-import com.jwt.model.Customer;
 import com.jwt.model.Product;
+import com.org.model.Users;
 
 import java.util.List;
 

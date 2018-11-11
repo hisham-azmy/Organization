@@ -1,4 +1,4 @@
-package com.jwt.model;
+package com.org.model;
 
 import java.util.List;
 
@@ -37,14 +37,14 @@ public class Role {
 	////////////////// End Basic//////////////////
 
 	@ManyToMany(mappedBy = "roles")
-	private List<Customer> customer;
+	private List<Users> users;
 
-	public List<Customer> getCustomer() {
-		return customer;
+	public List<Users> getCustomer() {
+		return users;
 	}
 
-	public void setCustomer(List<Customer> customer) {
-		this.customer = customer;
+	public void setCustomer(List<Users> users) {
+		this.users = users;
 	}
 
 }

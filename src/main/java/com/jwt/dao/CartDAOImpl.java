@@ -2,10 +2,10 @@ package com.jwt.dao;
 
 import com.jwt.model.Cart;
 import com.jwt.model.CartItem;
-import com.jwt.model.Customer;
 import com.jwt.model.Product;
-import com.jwt.service.CustomerService;
 import com.jwt.service.ProductService;
+import com.org.dao.UsersService;
+import com.org.model.Users;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +28,7 @@ public class CartDAOImpl implements CartDao {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private CustomerService customerService;
+	private UsersService usersService;
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -43,7 +43,7 @@ public class CartDAOImpl implements CartDao {
 	public void EditCart(int counter, int id) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
-		Customer customUser = customerService.getCustomerByName(user.getUsername());
+		Users customUser = usersService.getUsersByName(user.getUsername());
 		Cart cart = customUser.getCart();
 		Product product = productService.getProductById(id);
 		CartItem newcartItem = new CartItem();
@@ -101,14 +101,11 @@ public class CartDAOImpl implements CartDao {
 	public Cart getCartByCustomer() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
-		Customer customUser = customerService.getCustomerByName(user.getUsername());
+		Users customUser = usersService.getUsersByName(user.getUsername());
 		Cart carts = customUser.getCart();
 		return carts;
 	}
-	
-	
-	
-	
+
 	// @Override
 	// public List<Product> filterProductsByName(String name) {
 	// Query q = sessionFactory.getCurrentSession().createQuery("from Product where

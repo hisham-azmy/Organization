@@ -1,6 +1,9 @@
 package com.jwt.model;
 
 import javax.persistence.*;
+
+import com.org.model.Users;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +33,7 @@ public class Orders implements Serializable {
 	// =============================================================================\\
 
 	@ManyToOne(/* cascade = CascadeType.ALL, */ fetch = FetchType.EAGER)
-	private Customer cust;
+	private Users cust;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	private Cart cart;
@@ -62,11 +65,11 @@ public class Orders implements Serializable {
 		this.date = date;
 	}
 
-	public Customer getCust() {
+	public Users getCust() {
 		return cust;
 	}
 
-	public void setCust(Customer cust) {
+	public void setCust(Users cust) {
 		this.cust = cust;
 	}
 

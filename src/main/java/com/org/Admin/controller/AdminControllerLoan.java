@@ -126,17 +126,4 @@ public class AdminControllerLoan {
 		return gson.toJson(loanServcie.getAllNamePerLoans(term));
 	}
 
-	// @RequestMapping(value = "/loan/details", method = RequestMethod.POST)
-	// public String LoanDetailsPost(@Valid @ModelAttribute("newloanDetail")
-	// com.org.model.LoanDetails loanDetails,
-	// BindingResult br
-	// /* @PathVariable("loanId") int loanId */) {
-	// if (br.hasErrors()) {
-	// return "Loan/addLoan";
-	// }
-	// loanDetailsService.AddLoanDetails(loanDetails, loanId);
-	//
-	// return "redirect:/admin/allLoan";
-	// }
-
 }

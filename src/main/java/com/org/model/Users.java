@@ -1,4 +1,4 @@
-package com.jwt.model;
+package com.org.model;
 
 import java.util.List;
 
@@ -11,8 +11,11 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.jwt.model.Cart;
+import com.jwt.model.Orders;
+
 @Entity
-public class Customer {
+public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

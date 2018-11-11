@@ -25,8 +25,8 @@ import com.jwt.model.Category;
 import com.jwt.model.Product;
 import com.jwt.service.AdminService;
 import com.jwt.service.CategoryService;
-import com.jwt.service.CustomerService;
 import com.jwt.service.ProductService;
+import com.org.dao.UsersService;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -40,7 +40,7 @@ public class AdminControllerProduct {
 	private CategoryService categoryService;
 
 	@Autowired
-	private CustomerService customerService;
+	private UsersService usersService;
 
 	@Autowired
 	private AdminService adminService;
@@ -159,7 +159,7 @@ public class AdminControllerProduct {
 
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
 	public String customerManagement(Model model) {
-		model.addAttribute("customers", customerService.getAllCustomers());
+		model.addAttribute("customers", usersService.getAllUsers());
 		return "customers";
 	}
 

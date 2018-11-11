@@ -16,11 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jwt.dao.CartDao;
 import com.jwt.model.Cart;
 import com.jwt.model.CartItem;
-import com.jwt.model.Customer;
 import com.jwt.model.Product;
 import com.jwt.service.CategoryService;
-import com.jwt.service.CustomerService;
 import com.jwt.service.ProductService;
+import com.org.dao.UsersService;
+import com.org.model.Users;
 
 @Controller
 @RequestMapping(value = "/product")
@@ -30,7 +30,7 @@ public class ProductController {
 	private ProductService productService;
 
 	@Autowired
-	private CustomerService customerService;
+	private UsersService usersService;
 
 	@Autowired
 	private CartDao cartDao;

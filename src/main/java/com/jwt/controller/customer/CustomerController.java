@@ -6,15 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jwt.service.CustomerService;
 import com.jwt.service.ProductService;
+import com.org.dao.UsersService;
 
 @Controller
 @RequestMapping(value = "/customer")
 public class CustomerController {
 	
 	@Autowired
-	private CustomerService customerService;
+	private UsersService usersService;
 	 
 	@Autowired
 	private ProductService productService;

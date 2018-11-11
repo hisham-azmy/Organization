@@ -2,7 +2,6 @@ package com.org.dao;
 
 import java.util.List;
 
-import com.org.model.IoMember;
 import com.org.model.SecondaryIncome;
 
 public interface SecondaryIncomeDao {

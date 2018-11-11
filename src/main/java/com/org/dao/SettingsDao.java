@@ -2,10 +2,6 @@ package com.org.dao;
 
 import java.util.List;
 
-import org.hibernate.Query;
-
-import com.org.model.IoGroup;
-import com.org.model.IoMember;
 import com.org.model.IoSettings;
 
 public interface SettingsDao {

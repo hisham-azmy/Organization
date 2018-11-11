@@ -1,17 +1,13 @@
 package com.org.service;
 
-import com.jwt.dao.ClientDao;
-import com.jwt.model.Client;
-import com.org.dao.GroupDao;
-import com.org.model.IoGroup;
-import com.org.model.IoMember;
-import com.org.model.MemberPartnershipDetails;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.org.dao.GroupDao;
+import com.org.model.IoGroup;
 
 @Service
 @Transactional
@@ -44,6 +40,11 @@ public class GroupServiceImpl implements GroupServcie {
 	@Override
 	public List<String> allNameByGroup(String name) {
 		return groupDao.allNameByGroup(name);
+	}
+
+	@Override
+	public IoGroup getLoanById(int groupId) {
+		return groupDao.getLoanById(groupId);
 	}
 
 }

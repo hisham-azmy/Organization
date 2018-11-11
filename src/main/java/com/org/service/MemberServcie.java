@@ -2,7 +2,6 @@ package com.org.service;
 
 import java.util.List;
 
-import com.jwt.model.Client;
 import com.org.model.IoMember;
 
 public interface MemberServcie {

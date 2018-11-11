@@ -1,8 +1,9 @@
-package com.jwt.dao;
+package com.org.dao;
 
+import com.jwt.dao.RoleDao;
 import com.jwt.model.Cart;
-import com.jwt.model.Customer;
-import com.jwt.model.Role;
+import com.org.model.Users;
+import com.org.model.Role;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class CustomerDAOImpl implements CustomerDao {
+public class UsersDAOImpl implements UsersDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -24,7 +25,7 @@ public class CustomerDAOImpl implements CustomerDao {
 	private RoleDao roleDao;
 
 	@Override
-	public void AddCustomer(Customer cust) {
+	public void AddUsers(Users cust) {
 		cust.setEnabled(true);
 		Cart cart = new Cart();
 		// Role roleAdmin = roleDao.get(1);
@@ -41,38 +42,38 @@ public class CustomerDAOImpl implements CustomerDao {
 	}
 
 	@Override
-	public void updateCustomer(Customer cust) {
+	public void updateUsers(Users cust) {
 		sessionFactory.getCurrentSession().update(cust);
 
 	}
 
 	@Override
-	public void deleteCustomer(int id) {
-		Customer customer = (Customer) sessionFactory.getCurrentSession().load(Customer.class, id);
+	public void deleteUsers(int id) {
+		Users users = (Users) sessionFactory.getCurrentSession().load(Users.class, id);
 
-		if (null != customer) {
-			this.sessionFactory.getCurrentSession().delete(customer);
+		if (null != users) {
+			this.sessionFactory.getCurrentSession().delete(users);
 		}
 	}
 
 	@Override
-	public List<Customer> getAllCustomers() {
+	public List<Users> getAllUsers() {
 
-		return sessionFactory.getCurrentSession().createQuery("from Customer").list();
+		return sessionFactory.getCurrentSession().createQuery("from Users").list();
 	}
 
 	@Override
-	public Customer getCustomerById(int custId) {
-		Customer customer = (Customer) sessionFactory.getCurrentSession().get(Customer.class, custId);
-		return customer;
+	public Users getUsersById(int custId) {
+		Users users = (Users) sessionFactory.getCurrentSession().get(Users.class, custId);
+		return users;
 	}
 
 	@Override
-	public Customer getCustomerByName(String custName) {
+	public Users getUsersByName(String custName) {
 
-		Query query = sessionFactory.getCurrentSession().createQuery("from Customer where name=:name");
+		Query query = sessionFactory.getCurrentSession().createQuery("from Users where name=:name");
 		query.setParameter("name", custName);
-		Customer customer = (Customer) query.uniqueResult();
-		return customer;
+		Users users = (Users) query.uniqueResult();
+		return users;
 	}
 }

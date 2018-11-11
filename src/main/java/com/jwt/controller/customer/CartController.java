@@ -17,18 +17,18 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jwt.model.Cart;
 import com.jwt.model.CartItem;
-import com.jwt.model.Customer;
 import com.jwt.model.Orders;
 import com.jwt.service.CartService;
-import com.jwt.service.CustomerService;
 import com.jwt.service.OrderService;
+import com.org.dao.UsersService;
+import com.org.model.Users;
 
 @Controller
 @RequestMapping(value = "/customer/cart")
 public class CartController {
 	
 	@Autowired
-	private CustomerService customerService;
+	private UsersService usersService;
 	
 	@Autowired
 	private CartService cartService;
@@ -56,7 +56,7 @@ public class CartController {
 			final RedirectAttributes redirectAttributes) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
-		Customer customUser = customerService.getCustomerByName(user.getUsername());
+		Users customUser = usersService.getUsersByName(user.getUsername());
 		Cart carts = customUser.getCart();
 
 		List<CartItem> cartItems = carts.getCartItemList();

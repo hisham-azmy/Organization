@@ -12,49 +12,49 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jwt.model.Customer;
-import com.jwt.service.CustomerService;
 import com.jwt.service.ProductService;
+import com.org.dao.UsersService;
+import com.org.model.Users;
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
-	private CustomerService customerService;
-	
+	private UsersService usersService;
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
-		Customer customer = new Customer();
-		model.addObject("customer", customer);
+		Users users = new Users();
+		model.addObject("customer", users);
 		model.setViewName("registeration");
 		return model;
 	}
 
 	@RequestMapping(value = "/registeration", method = RequestMethod.POST)
-	public String saveEmployee(@Valid @ModelAttribute Customer customer, BindingResult br, Model model) {
+	public String saveEmployee(@Valid @ModelAttribute Users users, BindingResult br, Model model) {
 
 		if (br.hasErrors()) {
 			return "registeration";
 		}
 
-		customerService.AddCustomer(customer);
+		usersService.AddUsers(users);
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home2(Model model) {
 		model.addAttribute("title", "Home Page");
 		model.addAttribute("products", productService.getAllProducts());
 		return "home-02";
 	}
-	
+
 	@RequestMapping("/login")
 	public String login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout, Model model) {
-		
+
 		if (error != null) {
 			model.addAttribute("error", "username or password is wrong.");
 		}
@@ -62,8 +62,8 @@ public class HomeController {
 		if (logout != null) {
 			model.addAttribute("msg", "you have to logout.");
 		}
-		
+
 		return "c_login";
 	}
-	
+
 }

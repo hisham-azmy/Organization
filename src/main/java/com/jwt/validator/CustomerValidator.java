@@ -3,7 +3,7 @@ package com.jwt.validator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.jwt.model.Customer;
+import com.org.model.Users;
 
 public class CustomerValidator implements Validator {
 
@@ -15,7 +15,7 @@ public class CustomerValidator implements Validator {
 
 	@Override
 	public void validate(Object obj, Errors errors) {
-		Customer cust = (Customer) obj;
+		Users cust = (Users) obj;
 
 		if (cust.getName() == null) {
 			errors.rejectValue("Name", " The name is empty try again");

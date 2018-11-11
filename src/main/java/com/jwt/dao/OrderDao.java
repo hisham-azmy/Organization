@@ -2,8 +2,8 @@ package com.jwt.dao;
 
 import java.util.List;
 
-import com.jwt.model.Customer;
 import com.jwt.model.Orders;
+import com.org.model.Users;
 
 public interface OrderDao {
 

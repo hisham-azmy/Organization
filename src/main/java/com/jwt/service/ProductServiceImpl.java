@@ -1,9 +1,10 @@
 package com.jwt.service;
 
-import com.jwt.dao.CustomerDao;
 import com.jwt.dao.ProductDao;
-import com.jwt.model.Customer;
 import com.jwt.model.Product;
+import com.org.dao.UsersDao;
+import com.org.model.Users;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
